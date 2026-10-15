@@ -18,14 +18,14 @@ ul{list-style:none;margin:0;padding:0}li{display:flex;gap:12px;padding:8px 0;bor
 .lock button{width:100%;padding:12px;border:0;border-radius:10px;background:var(--gold);color:#111;font-size:16px;font-weight:600;cursor:pointer}
 .err{color:#e07a6a;font-size:14px;min-height:20px}[hidden]{display:none!important}
 </style></head><body><div class="wrap">
-<h1>Дневник года</h1><p class="sub">Артём Лёсин · мысли, шаги, рост · обновлено 15.10.2026 14:30 МСК</p>
+<h1>Дневник года</h1><p class="sub">Артём Лёсин · мысли, шаги, рост · обновлено 15.10.2026 20:00 МСК</p>
 <div class="tabs"><button id="b1" class="on">Дневник</button><button id="b2">Личное 🔒</button></div>
-<div id="p1"><section class="day"><h2>15.10.2026</h2><ul><li><span class="t">14:20</span><span>Завёл дневник года. Прошёл тренинг «Метаморфозы» Петра Осипова и зашёл на годовую программу.</span></li><li><span class="t">14:20</span><span>Задача на год: поменять свою жизнь. Цели, новые навыки, рост.</span></li></ul></section></div>
+<div id="p1"><section class="day"><h2>15.10.2026</h2><ul><li><span class="t">14:20</span><span>Завёл дневник года. Прошёл тренинг «Метаморфозы» Петра Осипова и зашёл на годовую программу.</span></li><li><span class="t">14:20</span><span>Задача на год: поменять свою жизнь. Цели, новые навыки, рост.</span></li><li><span class="t">15:11</span><span>Команда на тренинге Петра Осипова: 14 человек, выбираем название.</span></li><li><span class="t">19:01</span><span>Собирает одну викторину из четырёх: ЛЛК-Интернешнл, «Спартак», гала-ужин, нефть. По пять лучших вопросов из каждой.</span></li></ul></section></div>
 <div id="p2" hidden><div class="lock" id="lock"><div>Эта вкладка только для тебя. Введи пароль.</div>
 <input id="pw" type="password" autocomplete="current-password" placeholder="Пароль"><button id="go">Открыть</button><div class="err" id="err"></div></div>
 <div id="priv"></div></div>
 </div><script>
-const E={"s": "lbgBYvkoJVhMj7Sfj99CmA==", "i": "bmEEFgenUc8TI0yz", "c": "qBGj7fPERZBDQI6ZKboX+/SFdOW2s5K3iDoQHrFV27jh+cKw2nC4nmabR6C8iO0a/jiDzO3vafT+Y88pL2+A+1/24eo6ZqMu4wMJR1zjYnGGE6HtN/TTkiJP1nffydBAnTDjYRuEmRFovPLVmhp1Ud1tuZPoJGnVaL2IfoQYTm0oOyaAcrjVPorcCdU=", "n": "250000"};
+const E={"s": "dr4YQ7mdteEMApT6LPIMVQ==", "i": "JzwyBgUsbuJriRpo", "c": "PgFAbiB2kYJKpCvzToOKxkliDEmFgDdoAd4JCfBOd6OYnzNMY6mKCd906EnFHY0P1WPnKuZhzfFNN6J1sJmChZ7PsYibmlO4C4MzaQRkPz7d7rbC8rEk5gQu6jdaN+GpWx0jiShWH9kCbPU/QbHgi2SDgfF7qCVSC6lF373AsxUTHjiZfUh54clCNyk=", "n": "250000"};
 const b1=document.getElementById('b1'),b2=document.getElementById('b2'),p1=document.getElementById('p1'),p2=document.getElementById('p2');
 b1.onclick=()=>{b1.classList.add('on');b2.classList.remove('on');p1.hidden=false;p2.hidden=true};
 b2.onclick=()=>{b2.classList.add('on');b1.classList.remove('on');p2.hidden=false;p1.hidden=true};
