@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Артём Лёсин, ведущий мероприятий</title>
+<meta name="description" content="Ведущий деловых и бизнес-мероприятий, модератор, фасилитатор. ТОП-100 ведущих России, ТОП-10 модераторов Москвы.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf9f7; --tint:#f2f0ec; --ink:#0d0d0f; --text:#2b2a28; --muted:#77736c;
+  --line:#e4e1db; --gold:#d0b068; --gold-d:#a8873f; --dark:#0b0b0c;
+  --r:18px; --w:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 16px/1.6 'Golos Text',-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+.h{font-family:'Unbounded',sans-serif;font-weight:300;color:var(--ink);letter-spacing:-.02em;line-height:1.05}
+.kicker{display:flex;align-items:center;gap:10px;font:600 11px/1.4 'Golos Text',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#55524c}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
+section{padding:110px 0;border-top:1px solid var(--line)}
+section.tint{background:var(--tint);border-top:0}
+.sec-title{font-size:clamp(34px,5vw,56px);margin:18px 0 14px}
+.sec-sub{color:var(--muted);max-width:560px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(250,249,247,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
+.brand{text-decoration:none;line-height:1.1}
+.brand b{display:block;font:500 15px 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.01em}
+.brand small{font:600 9.5px 'Golos Text',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.menu{display:flex;gap:26px}
+.menu a{text-decoration:none;font-size:14px;color:#4a4742;transition:color .2s}
+.menu a:hover{color:var(--ink)}
+.icons{display:flex;gap:6px}
+.icons a{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:#4a4742;transition:background .2s,color .2s}
+.icons a:hover{background:var(--tint);color:var(--ink)}
+.icons svg{width:17px;height:17px}
+
+/* hero */
+.hero{padding:90px 0 70px;border-top:0}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.hero .kicker{line-height:1.7;max-width:460px}
+.hero h1{font-size:clamp(52px,8.4vw,104px);margin:22px 0 26px}
+.hero .lead{font-size:19px;color:#4a4742;max-width:470px}
+.hero .lead b{color:var(--ink);font-weight:500}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:500 15px 'Golos Text',sans-serif;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.dark:hover{background:#2a2925}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn:active{transform:scale(.98)}
+.portrait{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:#ddd}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.badge{position:absolute;left:16px;bottom:16px;right:16px;display:flex;gap:8px;flex-wrap:wrap}
+.badge span{background:rgba(11,11,12,.72);color:#fff;font:500 12px 'Golos Text',sans-serif;padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.badge span::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-right:7px;vertical-align:2px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:46px 30px;padding:60px 0 0;margin-top:70px;border-top:1px solid var(--line);text-align:center}
+.stats .n{font:300 clamp(40px,5vw,58px)/1 'Unbounded',sans-serif;color:#3a3833;letter-spacing:-.03em}
+.stats .l{margin:12px auto 0;font-size:13.5px;color:var(--muted);max-width:200px;line-height:1.45}
+
+/* about */
+.about .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;margin-top:40px}
+.about .quote{font-size:clamp(26px,3.2vw,38px);line-height:1.15;margin-bottom:30px}
+.about p{margin-bottom:16px;color:#3f3d39}
+.about p b{color:var(--ink);font-weight:600}
+.about ul{list-style:none;margin:0 0 20px}
+.about li{padding-left:18px;position:relative;margin-bottom:6px;color:#3f3d39}
+.about li::before{content:"▸";position:absolute;left:0;color:var(--gold-d);font-size:12px;top:3px}
+.about .photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:sticky;top:90px}
+.about .photo img{width:100%;height:100%;object-fit:cover}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 30px;margin-top:80px;padding-top:60px;border-top:1px solid var(--line)}
+.fact b{display:block;position:relative;padding-left:22px;font:600 15px/1.35 'Golos Text',sans-serif;color:var(--ink)}
+.fact b::before{content:"";position:absolute;left:0;top:10px;width:12px;height:1.5px;background:var(--gold)}
+.fact span{display:block;margin-top:8px;font-size:13.5px;color:var(--muted);line-height:1.5}
+
+/* formats */
+.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.fmt{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;transition:transform .25s,box-shadow .25s}
+.fmt:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.06)}
+.fmt .num{font:300 13px 'Unbounded',sans-serif;color:var(--gold-d)}
+.fmt h3{font:400 19px/1.25 'Unbounded',sans-serif;color:var(--ink);margin:14px 0 12px;letter-spacing:-.01em}
+.fmt p{font-size:14.5px;color:#5a5751}
+
+/* video */
+.videos{margin-top:56px;display:flex;flex-direction:column;gap:56px}
+.vid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.thumb{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;background:#111;text-decoration:none;display:block}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;opacity:.78;transition:transform .5s,opacity .3s}
+.thumb:hover img{transform:scale(1.03);opacity:.68}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.05) 70%)}
+.thumb .cap{position:absolute;left:28px;top:50%;transform:translateY(-50%);z-index:2;color:#fff;font:300 clamp(22px,2.6vw,32px)/1.08 'Unbounded',sans-serif;letter-spacing:-.02em;max-width:62%}
+.thumb .cap small{display:block;font:400 10px 'Golos Text',sans-serif;letter-spacing:.3em;text-transform:uppercase;margin-top:10px;opacity:.85}
+.thumb .play{position:absolute;left:16px;bottom:16px;z-index:2;width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.6);display:grid;place-items:center}
+.thumb .play::before{content:"";border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.vid h3{font:400 clamp(22px,2.4vw,30px)/1.15 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.02em;margin-bottom:14px}
+.vid ul{list-style:none}
+.vid li{font-size:14.5px;color:#5f5c56;margin-bottom:4px}
+.vid li::before{content:"▹ ";color:var(--muted)}
+
+/* reels */
+.reels{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:50px;padding:0 24px 10px calc((100vw - var(--w))/2 + 24px);scrollbar-width:none}
+.reels::-webkit-scrollbar{display:none}
+.reel{flex:0 0 240px;aspect-ratio:9/16;border-radius:var(--r);overflow:hidden;position:relative;scroll-snap-align:start;text-decoration:none;background:#111}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.reel:hover img{transform:scale(1.04)}
+.reel .tag{position:absolute;top:12px;right:12px;background:rgba(40,40,44,.75);color:#fff;font-size:11.5px;padding:4px 10px;border-radius:999px}
+.reel .t{position:absolute;left:14px;right:14px;bottom:16px;color:#fff;font:500 14px/1.3 'Golos Text',sans-serif;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:50px}
+.gallery figure{border-radius:var(--r);overflow:hidden;background:#ddd}
+.gallery img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:transform .6s}
+.gallery figure:hover img{transform:scale(1.03)}
+.g-a{grid-column:span 3;aspect-ratio:4/3}
+.g-b{grid-column:span 3;aspect-ratio:4/3}
+.g-wide{grid-column:span 6;aspect-ratio:21/9;position:relative}
+.g-wide img{object-position:50% 18%}
+.g-wide .wm{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:rgba(255,255,255,.88);font:300 clamp(14px,2vw,22px) 'Golos Text',sans-serif;letter-spacing:.42em;text-transform:lowercase}
+.g-s{grid-column:span 2;aspect-ratio:4/5}
+
+/* clients */
+.clients{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.clients .big{font:300 clamp(20px,2.3vw,27px)/1.45 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.01em}
+.clients .big span{color:var(--gold-d)}
+.events{list-style:none;border-top:1px solid var(--line)}
+.events li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--ink)}
+.events li em{font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
+.rev q{font:300 17px/1.5 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.01em;quotes:"«" "»"}
+.rev cite{font-style:normal;font-size:13.5px;color:var(--muted)}
+.rev cite b{display:block;color:var(--text);font-weight:600;margin-bottom:2px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:50px;counter-reset:s}
+.step{border-top:1px solid var(--ink);padding-top:22px}
+.step .n{font:300 40px/1 'Unbounded',sans-serif;color:var(--gold-d)}
+.step h3{font:500 17px 'Golos Text',sans-serif;color:var(--ink);margin:16px 0 8px}
+.step p{font-size:14.5px;color:#5a5751}
+
+/* faq */
+.faq{margin-top:44px;border-top:1px solid var(--line);max-width:860px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 40px 24px 0;position:relative;font:400 clamp(16px,1.8vw,19px)/1.35 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:20px;font:300 26px 'Unbounded',sans-serif;color:var(--gold-d);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 40px 24px 0;color:#4f4c47;max-width:700px}
+
+/* contact */
+.contact{background:var(--dark);color:#d9d6cf;border-top:0}
+.contact .kicker{color:#a8a49b}
+.contact .sec-title{color:#fff}
+.contact .sec-sub{color:#a8a49b}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px;align-items:start}
+.ways{display:flex;flex-direction:column;gap:12px}
+.way{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;border:1px solid #2a2a2e;border-radius:var(--r);text-decoration:none;color:#fff;transition:border-color .2s,background .2s}
+.way:hover{border-color:var(--gold);background:#141416}
+.way small{display:block;color:#8d8980;font-size:12.5px;margin-bottom:3px}
+.way b{font:400 17px 'Unbounded',sans-serif;letter-spacing:-.01em;font-weight:400}
+.way i{font-style:normal;color:var(--gold);font-size:20px}
+form{background:#141416;border:1px solid #2a2a2e;border-radius:var(--r);padding:30px}
+form h3{font:400 20px 'Unbounded',sans-serif;color:#fff;margin-bottom:20px;letter-spacing:-.01em}
+label{display:block;font-size:12.5px;color:#8d8980;margin:14px 0 6px}
+input,select,textarea{width:100%;background:#0b0b0c;border:1px solid #2e2e33;border-radius:12px;padding:13px 14px;color:#fff;font:400 15px 'Golos Text',sans-serif;outline:none;transition:border-color .2s}
+input:focus,select,textarea:focus{border-color:var(--gold)}
+textarea{min-height:90px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form .btn{width:100%;justify-content:center;margin-top:22px;background:var(--gold);border-color:var(--gold);color:#111}
+form .btn:hover{background:#dcc184}
+form .note{font-size:12px;color:#77736c;margin-top:12px;text-align:center}
+footer{background:var(--dark);color:#77736c;font-size:13px;padding:30px 0 40px;border-top:1px solid #1f1f22}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#a8a49b;text-decoration:none;margin-left:18px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .menu{display:none}
+  .hero .grid,.about .grid,.vid,.clients,.contact .grid{grid-template-columns:1fr;gap:36px}
+  .hero{padding-top:40px}
+  .portrait{max-width:520px}
+  .about .photo{position:relative;top:0;max-width:520px}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .formats,.reviews{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .reels{padding-left:24px}
+}
+@media (max-width:620px){
+  .wrap{padding:0 16px}
+  section{padding:76px 0}
+  .icons a:not(.keep){display:none}
+  .stats{grid-template-columns:1fr 1fr;gap:34px 16px;margin-top:50px;padding-top:44px}
+  .stats .n{font-size:34px}
+  .facts,.formats,.reviews,.steps{grid-template-columns:1fr}
+  .facts{gap:28px}
+  .gallery{grid-template-columns:1fr 1fr;gap:10px}
+  .g-a,.g-b,.g-wide{grid-column:span 2}
+  .g-s{grid-column:span 1}
+  .g-s:last-child{grid-column:span 2;aspect-ratio:4/3}
+  .reels{padding-left:16px}
+  .reel{flex-basis:200px}
+  .thumb .cap{left:18px;max-width:75%}
+  .row2{grid-template-columns:1fr}
+  .events li{flex-direction:column;gap:2px}
+  footer a{margin:0 16px 0 0}
+}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Артём Лёсин</b><small>ведущий мероприятий</small></a>
+    <nav class="menu">
+      <a href="#about">Обо мне</a>
+      <a href="#formats">Форматы</a>
+      <a href="#video">Видео</a>
+      <a href="#photo">Фото</a>
+      <a href="#clients">Клиенты</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="icons">
+      <a class="keep" href="tel:+79856908828" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+      <a class="keep" href="https://t.me/lyossin" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.8-1.4-1.5ZM9.6 14.2l8.3-7.4c.4-.3-.1-.5-.6-.2l-10.3 6.5"/></svg></a>
+      <a href="https://wa.me/79856908828" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.1Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 0 1-2.7-2.7l.8-1-1-2Z"/></svg></a>
+      <a href="https://instagram.com/artem_lesin" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="kicker reveal">Форумы · премии · конференции · корпоративы · онлайн-эфиры · стратегические сессии</div>
+        <h1 class="h reveal">Артём<br>Лёсин</h1>
+        <p class="lead reveal">Ведущий деловых и бизнес-мероприятий, модератор, фасилитатор. <b>Программа идёт по таймингу, зал включён, заказчик спокоен.</b></p>
+        <div class="btns reveal">
+          <a class="btn dark" href="#contact">Проверить свободную дату</a>
+          <a class="btn ghost" href="#video">Смотреть промо</a>
+        </div>
+      </div>
+      <div class="portrait reveal">
+        <img src="media/hero.jpg" alt="Артём Лёсин, ведущий мероприятий" fetchpriority="high">
+        <div class="badge"><span>ТОП-100 ведущих России</span><span>ТОП-10 модераторов Москвы</span></div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="reveal"><div class="n">2500+</div><div class="l">событий офлайн и онлайн</div></div>
+      <div class="reveal"><div class="n">2007</div><div class="l">год, с которого я веду мероприятия</div></div>
+      <div class="reveal"><div class="n">ТОП-100</div><div class="l">ведущих России</div></div>
+      <div class="reveal"><div class="n">ТОП-10</div><div class="l">модераторов Москвы</div></div>
+      <div class="reveal"><div class="n">28 000</div><div class="l">гостей на самом большом мероприятии</div></div>
+      <div class="reveal"><div class="n">1,5 млн</div><div class="l">зрителей одного онлайн-эфира</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="kicker">Обо мне</div>
+    <h2 class="h sec-title">Биография</h2>
+    <div class="grid">
+      <div>
+        <p class="h quote reveal">Интеллигентно-позитивный конферанс, деловой язык вашей отрасли, точный тайминг.</p>
+        <p>Веду мероприятия с 2007 года, начинал в 18. Сейчас это события федерального уровня: ПМЭФ, отраслевые форумы, премии, конференции крупных компаний.</p>
+        <p><b>ТОП-100 ведущих России, ТОП-10 модераторов Москвы.</b> Партнёр сообщества TOP Moderator.</p>
+        <p>Говорю на языке вашего события: финансы, IT, фарма, ритейл, недвижимость, медицина, спорт. Заказчик получает спокойствие: программа пройдёт по плану, гости останутся довольны, сбой никто не заметит.</p>
+        <ul>
+          <li>Модерировал дискуссии с руководителями Сбера, Росатома, Ростеха и ЛУКОЙЛа.</li>
+          <li>Ежегодно веду ПМЭФ, «Альфа Будущее саммит», премию «Крылья России», закрытие сезона Большого театра.</li>
+          <li>Работал на одной сцене с Тони Роббинсом.</li>
+        </ul>
+        <p>Сцену знаю изнутри: Школа Первого канала, Федеральная школа радио, техника речи, актёрское и режиссёрское образование. Этими инструментами работаю на каждом выходе.</p>
+      </div>
+      <div class="photo reveal"><img src="media/about.jpg" alt="Артём Лёсин ведёт мероприятие" loading="lazy"></div>
+    </div>
+
+    <div class="facts">
+      <div class="fact reveal"><b>27 лет на сцене</b><span>Из них 19 в ивент-индустрии за гонорар</span></div>
+      <div class="fact reveal"><b>Предприниматель с 6 лет</b><span>Поэтому язык бизнеса для меня родной</span></div>
+      <div class="fact reveal"><b>24 часа в прямом эфире</b><span>Непрерывно, для крупного маркетплейса</span></div>
+      <div class="fact reveal"><b>Одна сцена с Тони Роббинсом</b><span>Опыт залов мирового уровня</span></div>
+      <div class="fact reveal"><b>28 000 гостей</b><span>Самое большое офлайн-мероприятие в моей практике</span></div>
+      <div class="fact reveal"><b>1,5 млн зрителей</b><span>У одного онлайн-эфира</span></div>
+      <div class="fact reveal"><b>Школа Первого канала</b><span>И Федеральная школа радио</span></div>
+      <div class="fact reveal"><b>30 стран</b><span>Выезжаю на события по России и за рубеж</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="formats">
+  <div class="wrap">
+    <div class="kicker">Что веду</div>
+    <h2 class="h sec-title">Форматы</h2>
+    <div class="formats">
+      <div class="fmt reveal"><div class="num">01</div><h3>Деловые события и форумы</h3><p>Пленарные сессии, панельные дискуссии, круглые столы. Держу регламент, вытягиваю спикеров, не даю дискуссии рассыпаться.</p></div>
+      <div class="fmt reveal"><div class="num">02</div><h3>Премии и церемонии</h3><p>Порядок выхода лауреатов, работа со сценарием и залом, точные подводки. Ни одной паузы, в которой зал теряет внимание.</p></div>
+      <div class="fmt reveal"><div class="num">03</div><h3>Корпоративы и события компаний</h3><p>Юбилеи, дилерские конференции, годовые встречи. Смешиваю официальную часть и живое общение так, чтобы люди не смотрели на часы.</p></div>
+      <div class="fmt reveal"><div class="num">04</div><h3>Онлайн и гибрид</h3><p>Прямые эфиры, трансляции, конференции на камеру. Отдельный навык: здесь нет зала, который подскажет реакцию.</p></div>
+      <div class="fmt reveal"><div class="num">05</div><h3>Стратегические сессии</h3><p>Фасилитация, бизнес-игры, мозговые штурмы, интервью и паблик-токи.</p></div>
+      <div class="fmt reveal"><div class="num">06</div><h3>Частные праздники</h3><p>Свадьбы, дни рождения, семейные торжества того уровня, где важен вкус.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="video" style="border-top:0">
+  <div class="wrap">
+    <div class="kicker">Видео</div>
+    <h2 class="h sec-title">Промо</h2>
+    <p class="sec-sub">По ролику на каждый формат. Посмотрите тот, что ближе к вашей задаче.</p>
+    <div class="videos">
+      <div class="vid reveal">
+        <a class="thumb" href="#contact"><img src="media/v1.jpg" alt="" loading="lazy"><div class="cap">Видеовизитка<small>всё о работе ведущим</small></div><span class="play"></span></a>
+        <div><h3>Видеовизитка</h3><ul><li>кто я и как веду</li><li>клиенты и проекты</li><li>фрагменты с мероприятий</li><li>общий вайб моей работы</li></ul></div>
+      </div>
+      <div class="vid reveal">
+        <a class="thumb" href="#contact"><img src="media/v2.jpg" alt="" loading="lazy"><div class="cap">Деловые мероприятия<small>форумы · премии</small></div><span class="play"></span></a>
+        <div><h3>Деловые мероприятия</h3><ul><li>форумы и конференции</li><li>модерация пленарных сессий</li><li>премия «Крылья России»</li></ul></div>
+      </div>
+      <div class="vid reveal">
+        <a class="thumb" href="#contact"><img src="media/v3.jpg" alt="" loading="lazy"><div class="cap">Корпоративные мероприятия<small>события компаний</small></div><span class="play"></span></a>
+        <div><h3>Корпоративные мероприятия</h3><ul><li>годовые встречи и юбилеи</li><li>дилерские конференции</li><li>официальная часть и живое общение</li></ul></div>
+      </div>
+      <div class="vid reveal">
+        <a class="thumb" href="#contact"><img src="media/v4.jpg" alt="" loading="lazy"><div class="cap">Частные мероприятия<small>свадьбы · дни рождения</small></div><span class="play"></span></a>
+        <div><h3>Частные мероприятия</h3><ul><li>свадьбы</li><li>дни рождения</li><li>семейные торжества</li></ul></div>
+      </div>
+      <div class="vid reveal">
+        <a class="thumb" href="#contact"><img src="media/v5.jpg" alt="" loading="lazy"><div class="cap">Онлайн-мероприятия<small>эфиры · трансляции</small></div><span class="play"></span></a>
+        <div><h3>Онлайн-мероприятия</h3><ul><li>прямые эфиры</li><li>трансляции и гибридные конференции</li><li>работа на камеру</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reels">
+  <div class="wrap">
+    <div class="kicker">Коротко</div>
+    <h2 class="h sec-title">Рилс</h2>
+    <p class="sec-sub">Короткие ролики со сцены и из жизни ведущего.</p>
+  </div>
+  <div class="reels">
+    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r1.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
+    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r2.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
+    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r3.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
+    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r4.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
+    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r5.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
+  </div>
+</section>
+
+<section id="photo">
+  <div class="wrap">
+    <div class="kicker">Площадки</div>
+    <h2 class="h sec-title">Фото</h2>
+    <p class="sec-sub">Кадры с мероприятий и съёмок. Заодно можно посмотреть, в чём я выхожу на сцену.</p>
+    <div class="gallery">
+      <figure class="g-a reveal"><img src="media/g1.jpg" alt="" loading="lazy"></figure>
+      <figure class="g-b reveal"><img src="media/g2.jpg" alt="" loading="lazy"></figure>
+      <figure class="g-wide reveal"><img src="media/g6.jpg" alt="" loading="lazy"><div class="wm">artem lesin</div></figure>
+      <figure class="g-s reveal"><img src="media/g4.jpg" alt="" loading="lazy"></figure>
+      <figure class="g-s reveal"><img src="media/g5.jpg" alt="" loading="lazy"></figure>
+      <figure class="g-s reveal"><img src="media/g3.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="clients">
+  <div class="wrap">
+    <div class="kicker">С кем уже работал</div>
+    <h2 class="h sec-title">Клиенты</h2>
+    <div class="clients">
+      <p class="big reveal">Сбер <span>·</span> ЛУКОЙЛ <span>·</span> Альфа-Банк <span>·</span> Росатом <span>·</span> Ростех <span>·</span> Минэкономразвития РФ <span>·</span> Большой театр <span>·</span> Правительство Москвы <span>·</span> Silver Mercury</p>
+      <ul class="events reveal">
+        <li>Петербургский международный экономический форум<em>ежегодно</em></li>
+        <li>VI Федеральный форум «Производительность 360»<em>Минэкономразвития</em></li>
+        <li>183-летие Сбера<em>юбилей</em></li>
+        <li>Дилерская конференция ЛУКОЙЛ<em>ежегодно</em></li>
+        <li>«Альфа Будущее саммит», Альфа-Банк<em>ежегодно</em></li>
+        <li>Закрытие театрального сезона Большого театра<em>ежегодно</em></li>
+        <li>Национальная авиационная премия «Крылья России»<em>ежегодно</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="border-top:0">
+  <div class="wrap">
+    <div class="kicker">Обратная связь</div>
+    <h2 class="h sec-title">Отзывы</h2>
+    <p class="sec-sub">Цитаты из благодарственных писем заказчиков.</p>
+    <div class="reviews">
+      <div class="rev reveal"><q>Основываясь на разработанных Артёмом тактиках и общей стратегии мероприятия, мероприятие было проведено на высоком уровне</q><cite><b>ООО «Флагман-Экспо»</b>премии Правительства Москвы</cite></div>
+      <div class="rev reveal"><q>Благодарность за высокий профессионализм в организации и проведении корпоративных мероприятий, креативный подход в решении поставленных задач</q><cite><b>Альфа-Банк</b>корпоративные мероприятия</cite></div>
+      <div class="rev reveal"><q>За высокий профессионализм в проведении премии «Крылья России 2024»</q><cite><b>Национальная авиационная премия</b>«Крылья России»</cite></div>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="process">
+  <div class="wrap">
+    <div class="kicker">Как проходит работа</div>
+    <h2 class="h sec-title">Что будет, если вы напишете</h2>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>Разговор</h3><p>Обсуждаем событие, формат, аудиторию, задачу. 20 минут, чтобы понять, подхожу ли я вам.</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>Сценарий и тайминг</h3><p>Разбираю программу поминутно, предлагаю механики и интерактивы там, где вижу провисание.</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>Стыковка с площадкой</h3><p>Связываюсь с техниками, режиссёром, организатором. Звук, свет, трансляция, порядок выходов.</p></div>
+      <div class="step reveal"><div class="n">4</div><h3>Событие</h3><p>Веду, держу тайминг и зал. Сдвинулся график или спикер не вышел, решаю на ходу, гости не замечают.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="border-top:0">
+  <div class="wrap">
+    <div class="kicker">Частые вопросы</div>
+    <h2 class="h sec-title">Вопросы</h2>
+    <div class="faq">
+      <details><summary>Как проверить, свободна ли дата?</summary><p>Напишите в Telegram, WhatsApp или позвоните. Отвечаю в тот же день, календарь у меня перед глазами.</p></details>
+      <details><summary>Работаете в других городах?</summary><p>Да, выезжаю по России и за рубеж. Дорога и проживание обсуждаются отдельно.</p></details>
+      <details><summary>От чего зависит гонорар?</summary><p>От формата, длительности, объёма подготовки и даты. После короткого разговора называю точную сумму, скрытых доплат нет.</p></details>
+      <details><summary>Пишете сценарий сами?</summary><p>Могу вести по вашему сценарию, могу собрать его с нуля. Лучше всего получается, когда работаем вместе с вашей командой.</p></details>
+      <details><summary>Что если спикер опоздал или сорвался блок?</summary><p>Это моя работа. Держу запас подводок и импровизации, гости сбоя не заметят.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="kicker">Связь</div>
+    <h2 class="h sec-title">Проверим дату?</h2>
+    <p class="sec-sub">Напишите, какое у вас событие и когда. Отвечу в тот же день и скажу честно, ваш ли я ведущий.</p>
+    <div class="grid">
+      <div class="ways">
+        <a class="way" href="https://t.me/lyossin" target="_blank" rel="noopener"><span><small>Telegram</small><b>@lyossin</b></span><i>→</i></a>
+        <a class="way" href="https://wa.me/79856908828" target="_blank" rel="noopener"><span><small>WhatsApp</small><b>+7 985 690-88-28</b></span><i>→</i></a>
+        <a class="way" href="tel:+79856908828"><span><small>Телефон</small><b>+7 985 690-88-28</b></span><i>→</i></a>
+        <a class="way" href="tel:+79938908828"><span><small>MAX</small><b>+7 993 890-88-28</b></span><i>→</i></a>
+      </div>
+      <form id="lead">
+        <h3>Заявка</h3>
+        <label for="f-name">Ваше имя</label><input id="f-name" required autocomplete="name">
+        <div class="row2">
+          <div><label for="f-date">Дата события</label><input id="f-date" type="date"></div>
+          <div><label for="f-type">Тип события</label>
+            <select id="f-type"><option>Форум или конференция</option><option>Премия или церемония</option><option>Корпоратив</option><option>Онлайн или гибрид</option><option>Стратегическая сессия</option><option>Частный праздник</option><option>Другое</option></select></div>
+        </div>
+        <label for="f-city">Город и число гостей</label><input id="f-city" placeholder="Москва, 300 человек">
+        <label for="f-msg">Комментарий</label><textarea id="f-msg" placeholder="Расскажите о событии"></textarea>
+        <button class="btn" type="submit">Отправить в WhatsApp</button>
+        <p class="note">Заявка откроется готовым сообщением, останется нажать «Отправить».</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Артём Лёсин, ведущий и модератор · ТОП-100 ведущих России · партнёр TOP Moderator</span>
+    <span><a href="https://instagram.com/artem_lesin" target="_blank" rel="noopener">Instagram</a><a href="https://t.me/lyossin" target="_blank" rel="noopener">Telegram</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>10)},{passive:true});
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+  document.getElementById('lead').addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var v=function(id){return document.getElementById(id).value.trim()};
+    var t='Здравствуйте, Артём! Заявка с сайта.\nИмя: '+v('f-name')+'\nДата: '+(v('f-date')||'уточню')+'\nСобытие: '+v('f-type')+(v('f-city')?'\nГород и гости: '+v('f-city'):'')+(v('f-msg')?'\nКомментарий: '+v('f-msg'):'');
+    window.open('https://wa.me/79856908828?text='+encodeURIComponent(t),'_blank');
+  });
+})();
+</script>
+</body>
+</html>
