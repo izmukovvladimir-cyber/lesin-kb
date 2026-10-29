@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,389 +8,442 @@
 <meta name="description" content="Ведущий деловых и бизнес-мероприятий, модератор, фасилитатор. ТОП-100 ведущих России, ТОП-10 модераторов Москвы.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="media/hero.jpg" fetchpriority="high">
+<script>document.documentElement.className='js'</script>
 <style>
 :root{
-  --bg:#faf9f7; --tint:#f2f0ec; --ink:#0d0d0f; --text:#2b2a28; --muted:#77736c;
-  --line:#e4e1db; --gold:#d0b068; --gold-d:#a8873f; --dark:#0b0b0c;
-  --r:18px; --w:1120px;
+  --ground:#faf9f7; --surface:#fff; --surface-2:#f2f1ed; --stage:#f1f0ec;
+  --ink:#0b0b0c; --ink-soft:#3b3b3f; --muted:#6e6e73; --line:#e4e2dd; --line-strong:#cfcdc6;
+  --accent:#b3812c; --dark:#0d0d0f;
+  --font-display:'Unbounded',-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Golos Text',-apple-system,'Segoe UI',sans-serif;
+  --radius:18px; --wrap:1120px; --gutter:24px;
+  --ease:cubic-bezier(.2,.8,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font:400 16px/1.6 'Golos Text',-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--ground);color:var(--ink-soft);font:400 16px/1.6 var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
-.h{font-family:'Unbounded',sans-serif;font-weight:300;color:var(--ink);letter-spacing:-.02em;line-height:1.05}
-.kicker{display:flex;align-items:center;gap:10px;font:600 11px/1.4 'Golos Text',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#55524c}
-.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
-section{padding:110px 0;border-top:1px solid var(--line)}
-section.tint{background:var(--tint);border-top:0}
-.sec-title{font-size:clamp(34px,5vw,56px);margin:18px 0 14px}
-.sec-sub{color:var(--muted);max-width:560px}
+button{font:inherit}
+.wrap{max-width:calc(var(--wrap) + var(--gutter)*2);margin:0 auto;padding:0 var(--gutter)}
 
-/* nav */
-.nav{position:sticky;top:0;z-index:20;background:rgba(250,249,247,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
-.nav.scrolled{border-color:var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
+/* экран загрузки */
+#boot{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:var(--ground);color:var(--ink);transition:opacity .6s ease,visibility .6s ease}
+#boot[data-done="true"]{opacity:0;visibility:hidden;pointer-events:none}
+#boot .mic{width:34px;height:54px;color:var(--accent);animation:boot-mic 1.9s cubic-bezier(.4,0,.3,1) infinite}
+#boot .name{font:300 clamp(1.05rem,3.4vw,1.5rem) var(--font-display);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;opacity:0;animation:boot-name .9s ease both .25s}
+#boot .track{width:min(180px,42vw);height:1px;position:relative;overflow:hidden}
+#boot .track::before{content:"";position:absolute;inset:0;background:var(--ink);opacity:.16}
+#boot .track::after{content:"";position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left;animation:boot-bar 2.4s var(--ease) forwards}
+@keyframes boot-mic{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes boot-name{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes boot-bar{to{transform:scaleX(1)}}
+
+/* типографика */
+.eyebrow{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:10px;font:500 12px/1.5 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:calc((1.5em - 6px)/2)}
+.title{font:200 clamp(2.2rem,5.4vw,4rem)/1 var(--font-display);letter-spacing:-.04em;color:var(--ink);margin:18px 0 0;text-wrap:balance}
+.lead{margin-top:14px;color:var(--muted);max-width:56ch}
+section{padding:clamp(76px,10vw,128px) 0;border-top:1px solid var(--line)}
+.section--tint{background:var(--surface-2);border-top:0}
+
+/* шапка */
+.header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--ground) 78%,transparent);backdrop-filter:saturate(180%) blur(22px);-webkit-backdrop-filter:saturate(180%) blur(22px);border-bottom:1px solid transparent;transition:border-color .3s}
+.header[data-scrolled="true"]{border-bottom-color:var(--line)}
+.header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:62px}
 .brand{text-decoration:none;line-height:1.1}
-.brand b{display:block;font:500 15px 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.01em}
-.brand small{font:600 9.5px 'Golos Text',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.menu{display:flex;gap:26px}
-.menu a{text-decoration:none;font-size:14px;color:#4a4742;transition:color .2s}
-.menu a:hover{color:var(--ink)}
-.icons{display:flex;gap:6px}
-.icons a{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:#4a4742;transition:background .2s,color .2s}
-.icons a:hover{background:var(--tint);color:var(--ink)}
+.brand b{display:block;font:400 15px var(--font-display);letter-spacing:-.02em;color:var(--ink)}
+.brand small{font:500 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:24px}
+.nav a{text-decoration:none;font-size:14px;color:var(--ink-soft);transition:color .25s}
+.nav a:hover{color:var(--accent)}
+.icons{display:flex;gap:4px;align-items:center}
+.icons a{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:var(--ink-soft);transition:background-color .25s,color .25s}
+.icons a:hover{background:var(--surface-2);color:var(--ink)}
 .icons svg{width:17px;height:17px}
+.burger{display:none;width:38px;height:38px;border:0;background:none;cursor:pointer;position:relative}
+.burger span{position:absolute;left:9px;right:9px;height:1.5px;background:var(--ink);transition:transform .3s var(--ease),opacity .2s}
+.burger span:nth-child(1){top:14px}.burger span:nth-child(2){top:19px}.burger span:nth-child(3){top:24px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.mnav{position:fixed;inset:62px 0 0;z-index:49;background:var(--ground);padding:28px var(--gutter);display:flex;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .3s var(--ease),visibility .3s}
+.mnav[data-open="true"]{opacity:1;visibility:visible;transform:none}
+.mnav a{text-decoration:none;font:300 26px/1.6 var(--font-display);letter-spacing:-.03em;color:var(--ink)}
+.mnav a.btn{margin-top:24px;align-self:flex-start;font:500 16px/1 var(--font-body);letter-spacing:0;color:var(--ground)}
 
-/* hero */
-.hero{padding:90px 0 70px;border-top:0}
-.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
-.hero .kicker{line-height:1.7;max-width:460px}
-.hero h1{font-size:clamp(52px,8.4vw,104px);margin:22px 0 26px}
-.hero .lead{font-size:19px;color:#4a4742;max-width:470px}
-.hero .lead b{color:var(--ink);font-weight:500}
-.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:500 15px 'Golos Text',sans-serif;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:transform .2s,background .2s,color .2s}
-.btn.dark{background:var(--ink);color:#fff}
-.btn.dark:hover{background:#2a2925}
-.btn.ghost{background:transparent;color:var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:#fff}
-.btn:active{transform:scale(.98)}
-.portrait{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:#ddd}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.badge{position:absolute;left:16px;bottom:16px;right:16px;display:flex;gap:8px;flex-wrap:wrap}
-.badge span{background:rgba(11,11,12,.72);color:#fff;font:500 12px 'Golos Text',sans-serif;padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)}
-.badge span::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-right:7px;vertical-align:2px}
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:999px;border:1px solid transparent;font:500 16px/1 var(--font-body);cursor:pointer;text-decoration:none;transition:transform .25s var(--ease),background-color .25s,color .25s,border-color .25s}
+.btn:hover{transform:translateY(-1px)}
+.btn--solid{background:var(--ink);color:var(--ground)}
+.btn--solid:hover{background:var(--accent);color:#0b0b0c}
+.btn--ghost{border-color:var(--line-strong);color:var(--ink);background:transparent}
+.btn--ghost:hover{border-color:var(--ink)}
 
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:46px 30px;padding:60px 0 0;margin-top:70px;border-top:1px solid var(--line);text-align:center}
-.stats .n{font:300 clamp(40px,5vw,58px)/1 'Unbounded',sans-serif;color:#3a3833;letter-spacing:-.03em}
-.stats .l{margin:12px auto 0;font-size:13.5px;color:var(--muted);max-width:200px;line-height:1.45}
+/* первый экран */
+.hero{padding:clamp(52px,8vw,104px) 0 clamp(48px,7vw,88px);border-top:0}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero__copy{transform:translate3d(0,var(--shift,0px),0);will-change:transform,opacity}
+.hero .eyebrow{max-width:480px}
+.hero__title{font:200 clamp(2.9rem,8.4vw,6.6rem)/.94 var(--font-display);letter-spacing:-.045em;color:var(--ink);margin:22px 0 0;text-wrap:balance}
+.hero__sub{margin:26px 0 0;font-size:clamp(1.0625rem,1.7vw,1.3rem);line-height:1.5;color:var(--ink-soft);max-width:46ch}
+.hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero__portrait{position:relative;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;background:var(--surface-2)}
+.hero__portrait img{width:100%;height:100%;object-fit:cover;object-position:center 22%;transform:translate3d(0,var(--shift,0px),0) scale(var(--zoom,1));will-change:transform}
+.badge{position:absolute;left:16px;bottom:16px;right:16px;display:flex;gap:8px;flex-wrap:wrap;z-index:2}
+.badge span{background:rgba(8,8,10,.55);color:#f6f5f2;font:500 12px var(--font-body);padding:7px 12px;border-radius:999px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,48px) clamp(16px,3vw,40px);margin-top:clamp(44px,6vw,76px);padding-top:clamp(28px,4vw,44px);border-top:1px solid var(--line);text-align:center}
+.stat__value{font:300 clamp(2rem,4.4vw,3.2rem)/1.04 var(--font-display);letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--ink-soft);text-wrap:balance}
+.stat__label{margin:10px auto 0;font-size:14px;color:var(--muted);max-width:24ch;text-wrap:balance}
 
-/* about */
-.about .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;margin-top:40px}
-.about .quote{font-size:clamp(26px,3.2vw,38px);line-height:1.15;margin-bottom:30px}
-.about p{margin-bottom:16px;color:#3f3d39}
-.about p b{color:var(--ink);font-weight:600}
-.about ul{list-style:none;margin:0 0 20px}
-.about li{padding-left:18px;position:relative;margin-bottom:6px;color:#3f3d39}
-.about li::before{content:"▸";position:absolute;left:0;color:var(--gold-d);font-size:12px;top:3px}
-.about .photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:sticky;top:90px}
-.about .photo img{width:100%;height:100%;object-fit:cover}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 30px;margin-top:80px;padding-top:60px;border-top:1px solid var(--line)}
-.fact b{display:block;position:relative;padding-left:22px;font:600 15px/1.35 'Golos Text',sans-serif;color:var(--ink)}
-.fact b::before{content:"";position:absolute;left:0;top:10px;width:12px;height:1.5px;background:var(--gold)}
-.fact span{display:block;margin-top:8px;font-size:13.5px;color:var(--muted);line-height:1.5}
+/* вступление */
+@keyframes intro-rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes intro-portrait{from{opacity:0;transform:translateY(26px) scale(.965)}to{opacity:1;transform:none}}
+.js .hero .eyebrow,.js .hero__title,.js .hero__sub,.js .hero__actions,.js .stats{animation:intro-rise .9s var(--ease) both;animation-play-state:paused}
+.js .hero__portrait{animation:intro-portrait 1.15s var(--ease) both .18s;animation-play-state:paused}
+.js.is-ready .hero .eyebrow,.js.is-ready .hero__title,.js.is-ready .hero__sub,.js.is-ready .hero__actions,.js.is-ready .stats,.js.is-ready .hero__portrait{animation-play-state:running}
+.js .hero .eyebrow{animation-delay:.05s}
+.js .hero__title{animation-delay:.13s}
+.js .hero__sub{animation-delay:.23s}
+.js .hero__actions{animation-delay:.31s}
+.js .stats{animation-delay:.42s}
 
-/* formats */
-.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
-.fmt{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;transition:transform .25s,box-shadow .25s}
-.fmt:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.06)}
-.fmt .num{font:300 13px 'Unbounded',sans-serif;color:var(--gold-d)}
-.fmt h3{font:400 19px/1.25 'Unbounded',sans-serif;color:var(--ink);margin:14px 0 12px;letter-spacing:-.01em}
-.fmt p{font-size:14.5px;color:#5a5751}
+/* появление при прокрутке */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.zoom-in{transform:scale(.965);transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
+.js .reveal.is-visible{opacity:1;transform:none}
 
-/* video */
-.videos{margin-top:56px;display:flex;flex-direction:column;gap:56px}
-.vid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
-.thumb{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;background:#111;text-decoration:none;display:block}
-.thumb img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;opacity:.78;transition:transform .5s,opacity .3s}
-.thumb:hover img{transform:scale(1.03);opacity:.68}
-.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.05) 70%)}
-.thumb .cap{position:absolute;left:28px;top:50%;transform:translateY(-50%);z-index:2;color:#fff;font:300 clamp(22px,2.6vw,32px)/1.08 'Unbounded',sans-serif;letter-spacing:-.02em;max-width:62%}
-.thumb .cap small{display:block;font:400 10px 'Golos Text',sans-serif;letter-spacing:.3em;text-transform:uppercase;margin-top:10px;opacity:.85}
-.thumb .play{position:absolute;left:16px;bottom:16px;z-index:2;width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.6);display:grid;place-items:center}
-.thumb .play::before{content:"";border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
-.vid h3{font:400 clamp(22px,2.4vw,30px)/1.15 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.02em;margin-bottom:14px}
-.vid ul{list-style:none}
-.vid li{font-size:14.5px;color:#5f5c56;margin-bottom:4px}
-.vid li::before{content:"▹ ";color:var(--muted)}
+/* о себе */
+.about__grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,64px);align-items:start;margin-top:clamp(32px,4vw,48px)}
+.about__lead{font:300 clamp(1.6rem,3.1vw,2.35rem)/1.14 var(--font-display);letter-spacing:-.035em;color:var(--ink);margin-bottom:28px;text-wrap:balance}
+.about__text p{margin-bottom:16px}
+.about__text b{color:var(--ink);font-weight:600}
+.about__text ul{list-style:none;margin:0 0 18px}
+.about__text li{position:relative;padding-left:18px;margin-bottom:6px}
+.about__text li::before{content:"▸";position:absolute;left:0;top:1px;font-size:12px;color:var(--accent)}
+.about__photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;background:var(--surface-2);position:sticky;top:92px}
+.about__photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(28px,3vw,40px) clamp(20px,3vw,32px);margin-top:clamp(56px,7vw,88px);padding-top:clamp(40px,5vw,60px);border-top:1px solid var(--line)}
+.fact__t{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;font:600 15px/1.35 var(--font-body);color:var(--ink)}
+.fact__t::before{content:"";height:1.5px;background:var(--accent);margin-top:.68em}
+.fact__d{margin:8px 0 0 24px;font-size:13.5px;line-height:1.5;color:var(--muted)}
 
-/* reels */
-.reels{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:50px;padding:0 24px 10px calc((100vw - var(--w))/2 + 24px);scrollbar-width:none}
-.reels::-webkit-scrollbar{display:none}
-.reel{flex:0 0 240px;aspect-ratio:9/16;border-radius:var(--r);overflow:hidden;position:relative;scroll-snap-align:start;text-decoration:none;background:#111}
-.reel img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+/* форматы */
+.formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:clamp(36px,5vw,56px)}
+.fmt{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.fmt:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.06)}
+.fmt__n{font:300 13px var(--font-display);color:var(--accent)}
+.fmt h3{font:300 19px/1.25 var(--font-display);letter-spacing:-.025em;color:var(--ink);margin:14px 0 12px}
+.fmt p{font-size:14.5px;color:var(--muted)}
+
+/* видео */
+.section--stage{background:var(--stage);border-top:0}
+.videos{margin-top:clamp(40px,5vw,64px);display:flex;flex-direction:column;gap:clamp(40px,5vw,60px)}
+.video{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,48px);align-items:center}
+.video__cover{position:relative;display:block;width:100%;border:0;padding:0;cursor:pointer;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;background:#0b0b0c;text-align:left}
+.video__cover img{width:100%;height:100%;object-fit:cover;object-position:center 25%;opacity:.8;transition:transform .9s var(--ease),opacity .4s}
+.video__cover:hover img{transform:scale(1.035);opacity:.7}
+.video__cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.04) 72%)}
+.video__cap{position:absolute;left:clamp(18px,3vw,28px);top:50%;transform:translateY(-50%);z-index:2;color:#fff;font:200 clamp(22px,2.8vw,34px)/1.06 var(--font-display);letter-spacing:-.035em;max-width:66%}
+.video__cap small{display:block;margin-top:10px;font:400 10px var(--font-body);letter-spacing:.3em;text-transform:uppercase;opacity:.85}
+.video__play{position:absolute;left:16px;bottom:16px;z-index:2;width:44px;height:44px;border-radius:50%;background:rgba(8,8,10,.6);display:grid;place-items:center;transition:background-color .3s,transform .3s var(--ease)}
+.video__play::before{content:"";border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.video__cover:hover .video__play{background:var(--accent);transform:scale(1.06)}
+.video__name{font:300 clamp(22px,2.5vw,31px)/1.12 var(--font-display);letter-spacing:-.035em;color:var(--ink);margin-bottom:14px}
+.video ul{list-style:none}
+.video li{font-size:14.5px;color:var(--muted);margin-bottom:4px}
+.video li::before{content:"▹ "}
+
+/* рилс */
+.reels{display:flex;gap:clamp(12px,1.6vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;margin-top:clamp(36px,5vw,56px);padding-inline:max(var(--gutter),calc((100% - var(--wrap))/2));scroll-padding-inline:max(var(--gutter),calc((100% - var(--wrap))/2));padding-bottom:8px}
+.reels::-webkit-scrollbar{height:6px}
+.reels::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:3px}
+.reel{position:relative;flex:0 0 auto;width:clamp(200px,22vw,268px);aspect-ratio:9/16;scroll-snap-align:start;border-radius:18px;overflow:hidden;background:var(--surface-2);border:1px solid var(--line);text-decoration:none}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
 .reel:hover img{transform:scale(1.04)}
-.reel .tag{position:absolute;top:12px;right:12px;background:rgba(40,40,44,.75);color:#fff;font-size:11.5px;padding:4px 10px;border-radius:999px}
-.reel .t{position:absolute;left:14px;right:14px;bottom:16px;color:#fff;font:500 14px/1.3 'Golos Text',sans-serif;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.reel__tag{position:absolute;top:12px;right:12px;padding:6px 13px;border-radius:999px;font-size:12px;letter-spacing:.06em;background:rgba(8,8,10,.55);color:#f6f5f2;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background-color .25s,color .25s}
+.reel:hover .reel__tag{background:var(--accent);color:#0b0b0c}
 
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:50px}
-.gallery figure{border-radius:var(--r);overflow:hidden;background:#ddd}
-.gallery img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:transform .6s}
-.gallery figure:hover img{transform:scale(1.03)}
-.g-a{grid-column:span 3;aspect-ratio:4/3}
-.g-b{grid-column:span 3;aspect-ratio:4/3}
-.g-wide{grid-column:span 6;aspect-ratio:21/9;position:relative}
-.g-wide img{object-position:50% 18%}
-.g-wide .wm{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:rgba(255,255,255,.88);font:300 clamp(14px,2vw,22px) 'Golos Text',sans-serif;letter-spacing:.42em;text-transform:lowercase}
-.g-s{grid-column:span 2;aspect-ratio:4/5}
+/* фото */
+.gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:clamp(36px,5vw,56px)}
+.gallery button{display:block;border:0;padding:0;cursor:zoom-in;border-radius:var(--radius);overflow:hidden;background:var(--surface-2);position:relative}
+.gallery img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .9s var(--ease)}
+.gallery button:hover img{transform:scale(1.03)}
+.g-half{grid-column:span 3;aspect-ratio:4/3}
+.g-wide{grid-column:span 6;aspect-ratio:21/9}
+.g-wide img{object-position:center 18%}
+.g-wide .wm{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:rgba(255,255,255,.88);font:300 clamp(13px,1.8vw,20px) var(--font-body);letter-spacing:.42em;pointer-events:none}
+.g-third{grid-column:span 2;aspect-ratio:4/5}
 
-/* clients */
-.clients{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
-.clients .big{font:300 clamp(20px,2.3vw,27px)/1.45 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.01em}
-.clients .big span{color:var(--gold-d)}
+/* клиенты */
+.clients{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);margin-top:clamp(32px,4vw,48px)}
+.clients__list{font:300 clamp(19px,2.2vw,26px)/1.5 var(--font-display);letter-spacing:-.025em;color:var(--ink)}
+.clients__list span{color:var(--accent)}
 .events{list-style:none;border-top:1px solid var(--line)}
-.events li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--ink)}
-.events li em{font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+.events li{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink)}
+.events em{font-style:normal;font-size:13px;color:var(--muted);white-space:nowrap}
 
-/* reviews */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
-.rev{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
-.rev q{font:300 17px/1.5 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.01em;quotes:"«" "»"}
+/* отзывы */
+.reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:clamp(36px,5vw,56px)}
+.rev{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
+.rev q{font:300 16.5px/1.5 var(--font-display);letter-spacing:-.02em;color:var(--ink);quotes:"«" "»"}
 .rev cite{font-style:normal;font-size:13.5px;color:var(--muted)}
-.rev cite b{display:block;color:var(--text);font-weight:600;margin-bottom:2px}
+.rev cite b{display:block;color:var(--ink-soft);font-weight:600;margin-bottom:2px}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:50px;counter-reset:s}
+/* этапы */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px;margin-top:clamp(36px,5vw,56px)}
 .step{border-top:1px solid var(--ink);padding-top:22px}
-.step .n{font:300 40px/1 'Unbounded',sans-serif;color:var(--gold-d)}
-.step h3{font:500 17px 'Golos Text',sans-serif;color:var(--ink);margin:16px 0 8px}
-.step p{font-size:14.5px;color:#5a5751}
+.step__n{font:200 42px/1 var(--font-display);color:var(--accent)}
+.step h3{font:500 17px var(--font-body);color:var(--ink);margin:16px 0 8px}
+.step p{font-size:14.5px;color:var(--muted)}
 
-/* faq */
-.faq{margin-top:44px;border-top:1px solid var(--line);max-width:860px}
+/* вопросы */
+.faq{margin-top:clamp(32px,4vw,48px);border-top:1px solid var(--line);max-width:860px}
 .faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;padding:24px 40px 24px 0;position:relative;font:400 clamp(16px,1.8vw,19px)/1.35 'Unbounded',sans-serif;color:var(--ink);letter-spacing:-.01em}
+.faq summary{list-style:none;cursor:pointer;padding:24px 44px 24px 0;position:relative;font:300 clamp(16px,1.8vw,19px)/1.35 var(--font-display);letter-spacing:-.025em;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:4px;top:20px;font:300 26px 'Unbounded',sans-serif;color:var(--gold-d);transition:transform .25s}
+.faq summary::after{content:"+";position:absolute;right:4px;top:18px;font:200 28px var(--font-display);color:var(--accent);transition:transform .3s var(--ease)}
 .faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{padding:0 40px 24px 0;color:#4f4c47;max-width:700px}
+.faq details p{padding:0 44px 24px 0;max-width:700px}
 
-/* contact */
-.contact{background:var(--dark);color:#d9d6cf;border-top:0}
-.contact .kicker{color:#a8a49b}
-.contact .sec-title{color:#fff}
-.contact .sec-sub{color:#a8a49b}
-.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px;align-items:start}
+/* связь */
+.contact{background:var(--dark);color:#d2d1cd;border-top:0}
+.contact .eyebrow{color:#8f8e95}
+.contact .title{color:#f6f5f2}
+.contact .lead{color:#8f8e95}
+.contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);margin-top:clamp(32px,4vw,48px);align-items:start}
 .ways{display:flex;flex-direction:column;gap:12px}
-.way{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;border:1px solid #2a2a2e;border-radius:var(--r);text-decoration:none;color:#fff;transition:border-color .2s,background .2s}
-.way:hover{border-color:var(--gold);background:#141416}
-.way small{display:block;color:#8d8980;font-size:12.5px;margin-bottom:3px}
-.way b{font:400 17px 'Unbounded',sans-serif;letter-spacing:-.01em;font-weight:400}
-.way i{font-style:normal;color:var(--gold);font-size:20px}
-form{background:#141416;border:1px solid #2a2a2e;border-radius:var(--r);padding:30px}
-form h3{font:400 20px 'Unbounded',sans-serif;color:#fff;margin-bottom:20px;letter-spacing:-.01em}
-label{display:block;font-size:12.5px;color:#8d8980;margin:14px 0 6px}
-input,select,textarea{width:100%;background:#0b0b0c;border:1px solid #2e2e33;border-radius:12px;padding:13px 14px;color:#fff;font:400 15px 'Golos Text',sans-serif;outline:none;transition:border-color .2s}
-input:focus,select,textarea:focus{border-color:var(--gold)}
-textarea{min-height:90px;resize:vertical}
+.way{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;border:1px solid #232329;border-radius:var(--radius);text-decoration:none;color:#f6f5f2;transition:border-color .3s,background-color .3s}
+.way:hover{border-color:var(--accent);background:#141416}
+.way small{display:block;color:#8f8e95;font-size:12.5px;margin-bottom:3px}
+.way b{font:300 17px var(--font-display);letter-spacing:-.02em}
+.way i{font-style:normal;color:var(--accent);font-size:20px;transition:transform .3s var(--ease)}
+.way:hover i{transform:translateX(4px)}
+.form{background:#141416;border:1px solid #232329;border-radius:var(--radius);padding:30px}
+.form h3{font:300 20px var(--font-display);letter-spacing:-.025em;color:#f6f5f2;margin-bottom:8px}
+.form label{display:block;font-size:12.5px;color:#8f8e95;margin:14px 0 6px}
+.form input,.form select,.form textarea{width:100%;background:#0b0b0c;border:1px solid #2e2e33;border-radius:12px;padding:13px 14px;color:#f6f5f2;font:400 15px var(--font-body);outline:none;transition:border-color .25s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--accent)}
+.form textarea{min-height:90px;resize:vertical}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-form .btn{width:100%;justify-content:center;margin-top:22px;background:var(--gold);border-color:var(--gold);color:#111}
-form .btn:hover{background:#dcc184}
-form .note{font-size:12px;color:#77736c;margin-top:12px;text-align:center}
-footer{background:var(--dark);color:#77736c;font-size:13px;padding:30px 0 40px;border-top:1px solid #1f1f22}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer a{color:#a8a49b;text-decoration:none;margin-left:18px}
+.form .btn{width:100%;margin-top:22px;background:#f6f5f2;color:#0b0b0c}
+.form .btn:hover{background:var(--accent)}
+.form__note{font-size:12px;color:#6e6e73;margin-top:12px;text-align:center}
+.footer{background:var(--dark);color:#6e6e73;font-size:13px;padding:30px 0 40px;border-top:1px solid #1d1d21}
+.footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer a{color:#97969c;text-decoration:none;margin-left:18px;transition:color .25s}
+.footer a:hover{color:var(--accent)}
 
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
-.reveal.in{opacity:1;transform:none}
+/* просмотрщики */
+@keyframes viewer-in{from{opacity:0}to{opacity:1}}
+.viewer{position:fixed;inset:0;z-index:120;background:rgba(6,6,10,.94);display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,56px);animation:viewer-in .28s ease both}
+.viewer[hidden]{display:none}
+.viewer__close{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:14px;z-index:3;border:0;border-radius:999px;padding:9px 16px;font-size:13px;letter-spacing:.04em;cursor:pointer;color:#f6f5f2;background:rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background-color .25s}
+.viewer__close:hover{background:rgba(255,255,255,.24)}
+.viewer__frame{width:min(100%,1100px);aspect-ratio:16/9;border:0;border-radius:14px;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.55)}
+.viewer__img{max-width:100%;max-height:86vh;border-radius:14px;box-shadow:0 40px 90px rgba(0,0,0,.55)}
+.viewer__arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:#f6f5f2;background:rgba(255,255,255,.14);backdrop-filter:blur(12px);transition:background-color .25s}
+.viewer__arrow:hover{background:rgba(255,255,255,.26)}
+.viewer__arrow svg{width:22px;height:22px}
+.viewer__arrow--prev{left:clamp(12px,3vw,44px)}
+.viewer__arrow--next{right:clamp(12px,3vw,44px)}
+.viewer__count{position:absolute;left:18px;top:24px;font-size:13px;letter-spacing:.08em;color:rgba(246,245,242,.65);font-variant-numeric:tabular-nums}
 
 @media (max-width:980px){
-  .menu{display:none}
-  .hero .grid,.about .grid,.vid,.clients,.contact .grid{grid-template-columns:1fr;gap:36px}
-  .hero{padding-top:40px}
-  .portrait{max-width:520px}
-  .about .photo{position:relative;top:0;max-width:520px}
-  .facts{grid-template-columns:repeat(2,1fr)}
-  .formats,.reviews{grid-template-columns:1fr 1fr}
-  .steps{grid-template-columns:1fr 1fr}
-  .reels{padding-left:24px}
+  .nav{display:none}
+  .burger{display:block}
+  .hero__grid{grid-template-columns:minmax(0,1fr)}
+  .hero__portrait{order:-1;aspect-ratio:4/5}
+  .about__grid,.video,.clients,.contact__grid{grid-template-columns:minmax(0,1fr)}
+  .about__photo{position:relative;top:0;max-width:560px}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .formats,.reviews,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:620px){
-  .wrap{padding:0 16px}
-  section{padding:76px 0}
+  :root{--gutter:16px}
   .icons a:not(.keep){display:none}
-  .stats{grid-template-columns:1fr 1fr;gap:34px 16px;margin-top:50px;padding-top:44px}
-  .stats .n{font-size:34px}
-  .facts,.formats,.reviews,.steps{grid-template-columns:1fr}
-  .facts{gap:28px}
-  .gallery{grid-template-columns:1fr 1fr;gap:10px}
-  .g-a,.g-b,.g-wide{grid-column:span 2}
-  .g-s{grid-column:span 1}
-  .g-s:last-child{grid-column:span 2;aspect-ratio:4/3}
-  .reels{padding-left:16px}
-  .reel{flex-basis:200px}
-  .thumb .cap{left:18px;max-width:75%}
-  .row2{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts,.formats,.reviews,.steps{grid-template-columns:minmax(0,1fr)}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .g-half,.g-wide{grid-column:span 2}
+  .g-third{grid-column:span 1}
+  .g-third:last-child{grid-column:span 2;aspect-ratio:4/3}
+  .reel{width:62vw}
+  .video__cap{max-width:78%}
+  .row2{grid-template-columns:minmax(0,1fr)}
   .events li{flex-direction:column;gap:2px}
-  footer a{margin:0 16px 0 0}
+  .footer a{margin:0 16px 0 0}
 }
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  #boot .mic,#boot .name,#boot .track::after{animation:none;opacity:1;transform:none}
+  .js .hero .eyebrow,.js .hero__title,.js .hero__sub,.js .hero__actions,.js .stats,.js .hero__portrait{animation:none}
+  .js .reveal,.js .reveal.zoom-in{opacity:1;transform:none;transition:none}
+  .hero__portrait img,.hero__copy{transform:none}
+}
 </style>
 </head>
 <body>
 
-<header class="nav" id="nav">
-  <div class="wrap">
+<div id="boot" role="status" aria-label="Загрузка">
+  <svg class="mic" viewBox="0 0 24 38" fill="none" aria-hidden="true"><rect x="8" y="1" width="8" height="18" rx="4" fill="currentColor"/><path d="M4 15v2a8 8 0 0 0 16 0v-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 25v7M8 33h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  <div class="name">Артём Лёсин</div>
+  <div class="track"></div>
+</div>
+
+<header class="header" id="header">
+  <div class="wrap header__inner">
     <a class="brand" href="#top"><b>Артём Лёсин</b><small>ведущий мероприятий</small></a>
-    <nav class="menu">
-      <a href="#about">Обо мне</a>
-      <a href="#formats">Форматы</a>
-      <a href="#video">Видео</a>
-      <a href="#photo">Фото</a>
-      <a href="#clients">Клиенты</a>
-      <a href="#faq">Вопросы</a>
-      <a href="#contact">Контакты</a>
+    <nav class="nav">
+      <a href="#about">Обо мне</a><a href="#video">Видео</a><a href="#reels">Рилс</a><a href="#photo">Фото</a><a href="#clients">Клиенты</a><a href="#faq">Вопросы</a><a href="#contact">Контакты</a>
     </nav>
     <div class="icons">
       <a class="keep" href="tel:+79856908828" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
       <a class="keep" href="https://t.me/lyossin" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.8-1.4-1.5ZM9.6 14.2l8.3-7.4c.4-.3-.1-.5-.6-.2l-10.3 6.5"/></svg></a>
       <a href="https://wa.me/79856908828" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.1Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 0 1-2.7-2.7l.8-1-1-2Z"/></svg></a>
       <a href="https://instagram.com/artem_lesin" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a>
+      <a href="https://rutube.ru/video/dc32b61b1d0c86984ee68482ddbe3d3d/" target="_blank" rel="noopener" aria-label="RuTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5.5" width="18" height="13" rx="4"/><path d="m10.5 9.5 4 2.5-4 2.5Z" fill="currentColor"/></svg></a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
+<nav class="mnav" id="mnav" data-open="false">
+  <a href="#about">Обо мне</a><a href="#video">Видео</a><a href="#reels">Рилс</a><a href="#photo">Фото</a><a href="#clients">Клиенты</a><a href="#faq">Вопросы</a><a href="#contact">Контакты</a>
+  <a class="btn btn--solid" href="#contact">Проверить свободную дату</a>
+</nav>
 
 <main id="top">
 
 <section class="hero">
   <div class="wrap">
-    <div class="grid">
-      <div>
-        <div class="kicker reveal">Форумы · премии · конференции · корпоративы · онлайн-эфиры · стратегические сессии</div>
-        <h1 class="h reveal">Артём<br>Лёсин</h1>
-        <p class="lead reveal">Ведущий деловых и бизнес-мероприятий, модератор, фасилитатор. <b>Программа идёт по таймингу, зал включён, заказчик спокоен.</b></p>
-        <div class="btns reveal">
-          <a class="btn dark" href="#contact">Проверить свободную дату</a>
-          <a class="btn ghost" href="#video">Смотреть промо</a>
+    <div class="hero__grid">
+      <div class="hero__copy" id="heroCopy">
+        <p class="eyebrow">Форумы · премии · конференции · корпоративы · онлайн-эфиры · стратегические сессии</p>
+        <h1 class="hero__title">Артём Лёсин</h1>
+        <p class="hero__sub">Ведущий деловых и бизнес-мероприятий, модератор, фасилитатор. Программа идёт по таймингу, зал включён, заказчик спокоен.</p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#contact">Проверить свободную дату</a>
+          <a class="btn btn--ghost" href="#video">Смотреть промо</a>
         </div>
       </div>
-      <div class="portrait reveal">
+      <div class="hero__portrait" id="heroPortrait">
         <img src="media/hero.jpg" alt="Артём Лёсин, ведущий мероприятий" fetchpriority="high">
         <div class="badge"><span>ТОП-100 ведущих России</span><span>ТОП-10 модераторов Москвы</span></div>
       </div>
     </div>
-
-    <div class="stats">
-      <div class="reveal"><div class="n">2500+</div><div class="l">событий офлайн и онлайн</div></div>
-      <div class="reveal"><div class="n">2007</div><div class="l">год, с которого я веду мероприятия</div></div>
-      <div class="reveal"><div class="n">ТОП-100</div><div class="l">ведущих России</div></div>
-      <div class="reveal"><div class="n">ТОП-10</div><div class="l">модераторов Москвы</div></div>
-      <div class="reveal"><div class="n">28 000</div><div class="l">гостей на самом большом мероприятии</div></div>
-      <div class="reveal"><div class="n">1,5 млн</div><div class="l">зрителей одного онлайн-эфира</div></div>
+    <div class="stats" id="stats">
+      <div><p class="stat__value">2500+</p><p class="stat__label">событий офлайн и онлайн</p></div>
+      <div><p class="stat__value">2007</p><p class="stat__label">год, с которого я веду мероприятия</p></div>
+      <div><p class="stat__value">ТОП-100</p><p class="stat__label">ведущих России</p></div>
+      <div><p class="stat__value">ТОП-10</p><p class="stat__label">модераторов Москвы</p></div>
+      <div><p class="stat__value">28 000</p><p class="stat__label">гостей на самом большом мероприятии</p></div>
+      <div><p class="stat__value">1,5 млн</p><p class="stat__label">зрителей одного онлайн-эфира</p></div>
     </div>
   </div>
 </section>
 
-<section class="about" id="about">
+<section id="about">
   <div class="wrap">
-    <div class="kicker">Обо мне</div>
-    <h2 class="h sec-title">Биография</h2>
-    <div class="grid">
-      <div>
-        <p class="h quote reveal">Интеллигентно-позитивный конферанс, деловой язык вашей отрасли, точный тайминг.</p>
-        <p>Веду мероприятия с 2007 года, начинал в 18. Сейчас это события федерального уровня: ПМЭФ, отраслевые форумы, премии, конференции крупных компаний.</p>
-        <p><b>ТОП-100 ведущих России, ТОП-10 модераторов Москвы.</b> Партнёр сообщества TOP Moderator.</p>
-        <p>Говорю на языке вашего события: финансы, IT, фарма, ритейл, недвижимость, медицина, спорт. Заказчик получает спокойствие: программа пройдёт по плану, гости останутся довольны, сбой никто не заметит.</p>
-        <ul>
-          <li>Модерировал дискуссии с руководителями Сбера, Росатома, Ростеха и ЛУКОЙЛа.</li>
-          <li>Ежегодно веду ПМЭФ, «Альфа Будущее саммит», премию «Крылья России», закрытие сезона Большого театра.</li>
-          <li>Работал на одной сцене с Тони Роббинсом.</li>
-        </ul>
-        <p>Сцену знаю изнутри: Школа Первого канала, Федеральная школа радио, техника речи, актёрское и режиссёрское образование. Этими инструментами работаю на каждом выходе.</p>
+    <p class="eyebrow reveal">Обо мне</p>
+    <h2 class="title reveal">Биография</h2>
+    <div class="about__grid">
+      <div class="about__text">
+        <p class="about__lead reveal">Интеллигентно-позитивный конферанс, деловой язык вашей отрасли, точный тайминг.</p>
+        <div class="reveal">
+          <p>Веду мероприятия с 2007 года, начинал в 18. Сейчас это события федерального уровня: ПМЭФ, отраслевые форумы, премии, конференции крупных компаний.</p>
+          <p><b>ТОП-100 ведущих России, ТОП-10 модераторов Москвы.</b> Партнёр сообщества TOP Moderator.</p>
+          <p>Говорю на языке вашего события: финансы, IT, фарма, ритейл, недвижимость, медицина, спорт. Заказчик получает спокойствие: программа пройдёт по плану, гости останутся довольны, сбой никто не заметит.</p>
+          <ul>
+            <li>Модерировал дискуссии с руководителями Сбера, Росатома, Ростеха и ЛУКОЙЛа.</li>
+            <li>Ежегодно веду ПМЭФ, «Альфа Будущее саммит», премию «Крылья России», закрытие сезона Большого театра.</li>
+            <li>Работал на одной сцене с Тони Роббинсом.</li>
+          </ul>
+          <p>Сцену знаю изнутри: Школа Первого канала, Федеральная школа радио, техника речи, актёрское и режиссёрское образование. Этими инструментами работаю на каждом выходе.</p>
+        </div>
       </div>
-      <div class="photo reveal"><img src="media/about.jpg" alt="Артём Лёсин ведёт мероприятие" loading="lazy"></div>
+      <div class="about__photo reveal zoom-in"><img src="media/about.jpg" alt="Артём Лёсин ведёт мероприятие" loading="lazy"></div>
     </div>
-
     <div class="facts">
-      <div class="fact reveal"><b>27 лет на сцене</b><span>Из них 19 в ивент-индустрии за гонорар</span></div>
-      <div class="fact reveal"><b>Предприниматель с 6 лет</b><span>Поэтому язык бизнеса для меня родной</span></div>
-      <div class="fact reveal"><b>24 часа в прямом эфире</b><span>Непрерывно, для крупного маркетплейса</span></div>
-      <div class="fact reveal"><b>Одна сцена с Тони Роббинсом</b><span>Опыт залов мирового уровня</span></div>
-      <div class="fact reveal"><b>28 000 гостей</b><span>Самое большое офлайн-мероприятие в моей практике</span></div>
-      <div class="fact reveal"><b>1,5 млн зрителей</b><span>У одного онлайн-эфира</span></div>
-      <div class="fact reveal"><b>Школа Первого канала</b><span>И Федеральная школа радио</span></div>
-      <div class="fact reveal"><b>30 стран</b><span>Выезжаю на события по России и за рубеж</span></div>
+      <div class="reveal"><p class="fact__t">27 лет на сцене</p><p class="fact__d">Из них 19 в ивент-индустрии за гонорар</p></div>
+      <div class="reveal"><p class="fact__t">Предприниматель с 6 лет</p><p class="fact__d">Поэтому язык бизнеса для меня родной</p></div>
+      <div class="reveal"><p class="fact__t">24 часа в прямом эфире</p><p class="fact__d">Непрерывно, для крупного маркетплейса</p></div>
+      <div class="reveal"><p class="fact__t">Одна сцена с Тони Роббинсом</p><p class="fact__d">Опыт залов мирового уровня</p></div>
+      <div class="reveal"><p class="fact__t">28 000 гостей</p><p class="fact__d">Самое большое офлайн-мероприятие в моей практике</p></div>
+      <div class="reveal"><p class="fact__t">1,5 млн зрителей</p><p class="fact__d">У одного онлайн-эфира</p></div>
+      <div class="reveal"><p class="fact__t">Школа Первого канала</p><p class="fact__d">И Федеральная школа радио</p></div>
+      <div class="reveal"><p class="fact__t">30 стран</p><p class="fact__d">Выезжаю на события по России и за рубеж</p></div>
     </div>
   </div>
 </section>
 
-<section class="tint" id="formats">
+<section class="section--stage" id="video">
   <div class="wrap">
-    <div class="kicker">Что веду</div>
-    <h2 class="h sec-title">Форматы</h2>
-    <div class="formats">
-      <div class="fmt reveal"><div class="num">01</div><h3>Деловые события и форумы</h3><p>Пленарные сессии, панельные дискуссии, круглые столы. Держу регламент, вытягиваю спикеров, не даю дискуссии рассыпаться.</p></div>
-      <div class="fmt reveal"><div class="num">02</div><h3>Премии и церемонии</h3><p>Порядок выхода лауреатов, работа со сценарием и залом, точные подводки. Ни одной паузы, в которой зал теряет внимание.</p></div>
-      <div class="fmt reveal"><div class="num">03</div><h3>Корпоративы и события компаний</h3><p>Юбилеи, дилерские конференции, годовые встречи. Смешиваю официальную часть и живое общение так, чтобы люди не смотрели на часы.</p></div>
-      <div class="fmt reveal"><div class="num">04</div><h3>Онлайн и гибрид</h3><p>Прямые эфиры, трансляции, конференции на камеру. Отдельный навык: здесь нет зала, который подскажет реакцию.</p></div>
-      <div class="fmt reveal"><div class="num">05</div><h3>Стратегические сессии</h3><p>Фасилитация, бизнес-игры, мозговые штурмы, интервью и паблик-токи.</p></div>
-      <div class="fmt reveal"><div class="num">06</div><h3>Частные праздники</h3><p>Свадьбы, дни рождения, семейные торжества того уровня, где важен вкус.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="video" style="border-top:0">
-  <div class="wrap">
-    <div class="kicker">Видео</div>
-    <h2 class="h sec-title">Промо</h2>
-    <p class="sec-sub">По ролику на каждый формат. Посмотрите тот, что ближе к вашей задаче.</p>
+    <p class="eyebrow reveal">Видео</p>
+    <p class="lead reveal" style="margin-top:12px">Промо материалы</p>
     <div class="videos">
-      <div class="vid reveal">
-        <a class="thumb" href="#contact"><img src="media/v1.jpg" alt="" loading="lazy"><div class="cap">Видеовизитка<small>всё о работе ведущим</small></div><span class="play"></span></a>
-        <div><h3>Видеовизитка</h3><ul><li>кто я и как веду</li><li>клиенты и проекты</li><li>фрагменты с мероприятий</li><li>общий вайб моей работы</li></ul></div>
+      <div class="video">
+        <button class="video__cover reveal zoom-in" data-video="dc32b61b1d0c86984ee68482ddbe3d3d" aria-label="Смотреть видеовизитку"><img src="media/v1.jpg" alt="" loading="lazy"><span class="video__cap">Видеовизитка<small>всё о работе ведущим</small></span><span class="video__play"></span></button>
+        <div class="reveal"><h3 class="video__name">Видеовизитка</h3><ul><li>кто я и как веду</li><li>клиенты и проекты</li><li>фрагменты с мероприятий</li><li>общий вайб моей работы</li></ul></div>
       </div>
-      <div class="vid reveal">
-        <a class="thumb" href="#contact"><img src="media/v2.jpg" alt="" loading="lazy"><div class="cap">Деловые мероприятия<small>форумы · премии</small></div><span class="play"></span></a>
-        <div><h3>Деловые мероприятия</h3><ul><li>форумы и конференции</li><li>модерация пленарных сессий</li><li>премия «Крылья России»</li></ul></div>
+      <div class="video">
+        <button class="video__cover reveal zoom-in" data-video="12c95274f0c5e83aa6fc14ae66b6941a" aria-label="Смотреть промо деловых мероприятий"><img src="media/v2.jpg" alt="" loading="lazy"><span class="video__cap">Деловые мероприятия<small>форумы · премии · конференции</small></span><span class="video__play"></span></button>
+        <div class="reveal"><h3 class="video__name">Деловые мероприятия</h3><ul><li>форумы и конференции</li><li>модерация пленарных сессий</li><li>премии и церемонии</li></ul></div>
       </div>
-      <div class="vid reveal">
-        <a class="thumb" href="#contact"><img src="media/v3.jpg" alt="" loading="lazy"><div class="cap">Корпоративные мероприятия<small>события компаний</small></div><span class="play"></span></a>
-        <div><h3>Корпоративные мероприятия</h3><ul><li>годовые встречи и юбилеи</li><li>дилерские конференции</li><li>официальная часть и живое общение</li></ul></div>
+      <div class="video">
+        <button class="video__cover reveal zoom-in" data-video="4cc1a389c29a0d2d4c251bfb4f6d06b4" aria-label="Смотреть промо корпоративных мероприятий"><img src="media/v3.jpg" alt="" loading="lazy"><span class="video__cap">Корпоративные мероприятия<small>события компаний</small></span><span class="video__play"></span></button>
+        <div class="reveal"><h3 class="video__name">Корпоративные мероприятия</h3><ul><li>годовые встречи и юбилеи</li><li>дилерские конференции</li><li>официальная часть и живое общение</li></ul></div>
       </div>
-      <div class="vid reveal">
-        <a class="thumb" href="#contact"><img src="media/v4.jpg" alt="" loading="lazy"><div class="cap">Частные мероприятия<small>свадьбы · дни рождения</small></div><span class="play"></span></a>
-        <div><h3>Частные мероприятия</h3><ul><li>свадьбы</li><li>дни рождения</li><li>семейные торжества</li></ul></div>
+      <div class="video">
+        <button class="video__cover reveal zoom-in" data-video="e752e8d59ad14d60191f3c2f0545b3a6" aria-label="Смотреть промо частных мероприятий"><img src="media/v4.jpg" alt="" loading="lazy"><span class="video__cap">Частные мероприятия<small>свадьбы · дни рождения</small></span><span class="video__play"></span></button>
+        <div class="reveal"><h3 class="video__name">Частные мероприятия</h3><ul><li>свадьбы</li><li>дни рождения</li><li>семейные торжества</li></ul></div>
       </div>
-      <div class="vid reveal">
-        <a class="thumb" href="#contact"><img src="media/v5.jpg" alt="" loading="lazy"><div class="cap">Онлайн-мероприятия<small>эфиры · трансляции</small></div><span class="play"></span></a>
-        <div><h3>Онлайн-мероприятия</h3><ul><li>прямые эфиры</li><li>трансляции и гибридные конференции</li><li>работа на камеру</li></ul></div>
+      <div class="video">
+        <button class="video__cover reveal zoom-in" data-video="452a7763f67fd69d6d664cd2bca6f352" aria-label="Смотреть промо онлайн-мероприятий"><img src="media/v5.jpg" alt="" loading="lazy"><span class="video__cap">Онлайн-мероприятия<small>эфиры · трансляции</small></span><span class="video__play"></span></button>
+        <div class="reveal"><h3 class="video__name">Онлайн-мероприятия</h3><ul><li>прямые эфиры</li><li>трансляции и гибридные конференции</li><li>работа на камеру</li></ul></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="reels">
+<section id="reels" style="border-top:0">
   <div class="wrap">
-    <div class="kicker">Коротко</div>
-    <h2 class="h sec-title">Рилс</h2>
-    <p class="sec-sub">Короткие ролики со сцены и из жизни ведущего.</p>
+    <p class="eyebrow reveal">Коротко</p>
+    <h2 class="title reveal">Топовые рилс</h2>
+    <p class="lead reveal">Короткие ролики со сцены и из жизни ведущего.</p>
   </div>
   <div class="reels">
-    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r1.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
-    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r2.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
-    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r3.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
-    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r4.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
-    <a class="reel" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r5.jpg" alt="" loading="lazy"><span class="tag">Instagram</span></a>
+    <a class="reel reveal" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r1.jpg" alt="" loading="lazy"><span class="reel__tag">Instagram</span></a>
+    <a class="reel reveal" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r2.jpg" alt="" loading="lazy"><span class="reel__tag">Instagram</span></a>
+    <a class="reel reveal" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r3.jpg" alt="" loading="lazy"><span class="reel__tag">Instagram</span></a>
+    <a class="reel reveal" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r4.jpg" alt="" loading="lazy"><span class="reel__tag">Instagram</span></a>
+    <a class="reel reveal" href="https://instagram.com/artem_lesin" target="_blank" rel="noopener"><img src="media/r5.jpg" alt="" loading="lazy"><span class="reel__tag">Instagram</span></a>
   </div>
 </section>
 
 <section id="photo">
   <div class="wrap">
-    <div class="kicker">Площадки</div>
-    <h2 class="h sec-title">Фото</h2>
-    <p class="sec-sub">Кадры с мероприятий и съёмок. Заодно можно посмотреть, в чём я выхожу на сцену.</p>
-    <div class="gallery">
-      <figure class="g-a reveal"><img src="media/g1.jpg" alt="" loading="lazy"></figure>
-      <figure class="g-b reveal"><img src="media/g2.jpg" alt="" loading="lazy"></figure>
-      <figure class="g-wide reveal"><img src="media/g6.jpg" alt="" loading="lazy"><div class="wm">artem lesin</div></figure>
-      <figure class="g-s reveal"><img src="media/g4.jpg" alt="" loading="lazy"></figure>
-      <figure class="g-s reveal"><img src="media/g5.jpg" alt="" loading="lazy"></figure>
-      <figure class="g-s reveal"><img src="media/g3.jpg" alt="" loading="lazy"></figure>
+    <p class="eyebrow reveal">Площадки</p>
+    <h2 class="title reveal">Фото</h2>
+    <p class="lead reveal">Кадры с мероприятий и съёмок. Заодно здесь можно посмотреть, в чём я выхожу на сцену.</p>
+    <div class="gallery" id="gallery">
+      <button class="g-half reveal zoom-in"><img src="media/g1.jpg" alt="Артём Лёсин на сцене" loading="lazy"></button>
+      <button class="g-half reveal zoom-in"><img src="media/g2.jpg" alt="Артём Лёсин на мероприятии" loading="lazy"></button>
+      <button class="g-wide reveal zoom-in"><img src="media/g6.jpg" alt="Артём Лёсин" loading="lazy"><span class="wm">artemlesin.online</span></button>
+      <button class="g-third reveal zoom-in"><img src="media/g4.jpg" alt="Артём Лёсин на гала-ужине" loading="lazy"></button>
+      <button class="g-third reveal zoom-in"><img src="media/g5.jpg" alt="Артём Лёсин в А Клубе" loading="lazy"></button>
+      <button class="g-third reveal zoom-in"><img src="media/g3.jpg" alt="Студийный портрет Артёма Лёсина" loading="lazy"></button>
     </div>
   </div>
 </section>
 
-<section class="tint" id="clients">
+<section class="section--tint" id="clients">
   <div class="wrap">
-    <div class="kicker">С кем уже работал</div>
-    <h2 class="h sec-title">Клиенты</h2>
+    <p class="eyebrow reveal">С кем уже работал</p>
+    <h2 class="title reveal">Клиенты</h2>
     <div class="clients">
-      <p class="big reveal">Сбер <span>·</span> ЛУКОЙЛ <span>·</span> Альфа-Банк <span>·</span> Росатом <span>·</span> Ростех <span>·</span> Минэкономразвития РФ <span>·</span> Большой театр <span>·</span> Правительство Москвы <span>·</span> Silver Mercury</p>
+      <p class="clients__list reveal">Сбер <span>·</span> ЛУКОЙЛ <span>·</span> Альфа-Банк <span>·</span> Росатом <span>·</span> Ростех <span>·</span> Минэкономразвития РФ <span>·</span> Большой театр <span>·</span> Правительство Москвы <span>·</span> Silver Mercury</p>
       <ul class="events reveal">
         <li>Петербургский международный экономический форум<em>ежегодно</em></li>
         <li>VI Федеральный форум «Производительность 360»<em>Минэкономразвития</em></li>
@@ -404,11 +457,26 @@ footer a{color:#a8a49b;text-decoration:none;margin-left:18px}
   </div>
 </section>
 
-<section id="reviews" style="border-top:0">
+<section id="formats" style="border-top:0">
   <div class="wrap">
-    <div class="kicker">Обратная связь</div>
-    <h2 class="h sec-title">Отзывы</h2>
-    <p class="sec-sub">Цитаты из благодарственных писем заказчиков.</p>
+    <p class="eyebrow reveal">Что веду</p>
+    <h2 class="title reveal">Форматы</h2>
+    <div class="formats">
+      <div class="fmt reveal"><p class="fmt__n">01</p><h3>Деловые события и форумы</h3><p>Пленарные сессии, панельные дискуссии, круглые столы. Держу регламент, вытягиваю спикеров, не даю дискуссии рассыпаться.</p></div>
+      <div class="fmt reveal"><p class="fmt__n">02</p><h3>Премии и церемонии</h3><p>Порядок выхода лауреатов, работа со сценарием и залом, точные подводки. Ни одной паузы, в которой зал теряет внимание.</p></div>
+      <div class="fmt reveal"><p class="fmt__n">03</p><h3>Корпоративы и события компаний</h3><p>Юбилеи, дилерские конференции, годовые встречи. Смешиваю официальную часть и живое общение так, чтобы люди не смотрели на часы.</p></div>
+      <div class="fmt reveal"><p class="fmt__n">04</p><h3>Онлайн и гибрид</h3><p>Прямые эфиры, трансляции, конференции на камеру. Отдельный навык: здесь нет зала, который подскажет реакцию.</p></div>
+      <div class="fmt reveal"><p class="fmt__n">05</p><h3>Стратегические сессии</h3><p>Фасилитация, бизнес-игры, мозговые штурмы, интервью и паблик-токи.</p></div>
+      <div class="fmt reveal"><p class="fmt__n">06</p><h3>Частные праздники</h3><p>Свадьбы, дни рождения, семейные торжества того уровня, где важен вкус.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section--tint" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow reveal">Обратная связь</p>
+    <h2 class="title reveal">Отзывы</h2>
+    <p class="lead reveal">Цитаты из благодарственных писем заказчиков.</p>
     <div class="reviews">
       <div class="rev reveal"><q>Основываясь на разработанных Артёмом тактиках и общей стратегии мероприятия, мероприятие было проведено на высоком уровне</q><cite><b>ООО «Флагман-Экспо»</b>премии Правительства Москвы</cite></div>
       <div class="rev reveal"><q>Благодарность за высокий профессионализм в организации и проведении корпоративных мероприятий, креативный подход в решении поставленных задач</q><cite><b>Альфа-Банк</b>корпоративные мероприятия</cite></div>
@@ -417,24 +485,24 @@ footer a{color:#a8a49b;text-decoration:none;margin-left:18px}
   </div>
 </section>
 
-<section class="tint" id="process">
+<section id="process" style="border-top:0">
   <div class="wrap">
-    <div class="kicker">Как проходит работа</div>
-    <h2 class="h sec-title">Что будет, если вы напишете</h2>
+    <p class="eyebrow reveal">Как проходит работа</p>
+    <h2 class="title reveal">Что будет, если вы напишете</h2>
     <div class="steps">
-      <div class="step reveal"><div class="n">1</div><h3>Разговор</h3><p>Обсуждаем событие, формат, аудиторию, задачу. 20 минут, чтобы понять, подхожу ли я вам.</p></div>
-      <div class="step reveal"><div class="n">2</div><h3>Сценарий и тайминг</h3><p>Разбираю программу поминутно, предлагаю механики и интерактивы там, где вижу провисание.</p></div>
-      <div class="step reveal"><div class="n">3</div><h3>Стыковка с площадкой</h3><p>Связываюсь с техниками, режиссёром, организатором. Звук, свет, трансляция, порядок выходов.</p></div>
-      <div class="step reveal"><div class="n">4</div><h3>Событие</h3><p>Веду, держу тайминг и зал. Сдвинулся график или спикер не вышел, решаю на ходу, гости не замечают.</p></div>
+      <div class="step reveal"><p class="step__n">1</p><h3>Разговор</h3><p>Обсуждаем событие, формат, аудиторию, задачу. 20 минут, чтобы понять, подхожу ли я вам.</p></div>
+      <div class="step reveal"><p class="step__n">2</p><h3>Сценарий и тайминг</h3><p>Разбираю программу поминутно, предлагаю механики и интерактивы там, где вижу провисание.</p></div>
+      <div class="step reveal"><p class="step__n">3</p><h3>Стыковка с площадкой</h3><p>Связываюсь с техниками, режиссёром, организатором. Звук, свет, трансляция, порядок выходов.</p></div>
+      <div class="step reveal"><p class="step__n">4</p><h3>Событие</h3><p>Веду, держу тайминг и зал. Сдвинулся график или спикер не вышел, решаю на ходу, гости не замечают.</p></div>
     </div>
   </div>
 </section>
 
-<section id="faq" style="border-top:0">
+<section id="faq">
   <div class="wrap">
-    <div class="kicker">Частые вопросы</div>
-    <h2 class="h sec-title">Вопросы</h2>
-    <div class="faq">
+    <p class="eyebrow reveal">Частые вопросы</p>
+    <h2 class="title reveal">Вопросы</h2>
+    <div class="faq reveal">
       <details><summary>Как проверить, свободна ли дата?</summary><p>Напишите в Telegram, WhatsApp или позвоните. Отвечаю в тот же день, календарь у меня перед глазами.</p></details>
       <details><summary>Работаете в других городах?</summary><p>Да, выезжаю по России и за рубеж. Дорога и проживание обсуждаются отдельно.</p></details>
       <details><summary>От чего зависит гонорар?</summary><p>От формата, длительности, объёма подготовки и даты. После короткого разговора называю точную сумму, скрытых доплат нет.</p></details>
@@ -446,28 +514,28 @@ footer a{color:#a8a49b;text-decoration:none;margin-left:18px}
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="kicker">Связь</div>
-    <h2 class="h sec-title">Проверим дату?</h2>
-    <p class="sec-sub">Напишите, какое у вас событие и когда. Отвечу в тот же день и скажу честно, ваш ли я ведущий.</p>
-    <div class="grid">
-      <div class="ways">
+    <p class="eyebrow reveal">Связь</p>
+    <h2 class="title reveal">Обсудим ваше событие</h2>
+    <p class="lead reveal">Напишите в любом удобном мессенджере, какое у вас событие и когда. Отвечу в тот же день и скажу честно, ваш ли я ведущий.</p>
+    <div class="contact__grid">
+      <div class="ways reveal">
         <a class="way" href="https://t.me/lyossin" target="_blank" rel="noopener"><span><small>Telegram</small><b>@lyossin</b></span><i>→</i></a>
         <a class="way" href="https://wa.me/79856908828" target="_blank" rel="noopener"><span><small>WhatsApp</small><b>+7 985 690-88-28</b></span><i>→</i></a>
         <a class="way" href="tel:+79856908828"><span><small>Телефон</small><b>+7 985 690-88-28</b></span><i>→</i></a>
         <a class="way" href="tel:+79938908828"><span><small>MAX</small><b>+7 993 890-88-28</b></span><i>→</i></a>
       </div>
-      <form id="lead">
+      <form class="form reveal" id="lead">
         <h3>Заявка</h3>
         <label for="f-name">Ваше имя</label><input id="f-name" required autocomplete="name">
+        <label for="f-phone">Телефон</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="+7">
         <div class="row2">
           <div><label for="f-date">Дата события</label><input id="f-date" type="date"></div>
           <div><label for="f-type">Тип события</label>
             <select id="f-type"><option>Форум или конференция</option><option>Премия или церемония</option><option>Корпоратив</option><option>Онлайн или гибрид</option><option>Стратегическая сессия</option><option>Частный праздник</option><option>Другое</option></select></div>
         </div>
-        <label for="f-city">Город и число гостей</label><input id="f-city" placeholder="Москва, 300 человек">
-        <label for="f-msg">Комментарий</label><textarea id="f-msg" placeholder="Расскажите о событии"></textarea>
-        <button class="btn" type="submit">Отправить в WhatsApp</button>
-        <p class="note">Заявка откроется готовым сообщением, останется нажать «Отправить».</p>
+        <label for="f-msg">Комментарий</label><textarea id="f-msg" placeholder="Город, число гостей, пожелания"></textarea>
+        <button class="btn" type="submit">Отправить заявку</button>
+        <p class="form__note">Заявка откроется готовым сообщением в WhatsApp, останется нажать «Отправить».</p>
       </form>
     </div>
   </div>
@@ -475,26 +543,124 @@ footer a{color:#a8a49b;text-decoration:none;margin-left:18px}
 
 </main>
 
-<footer>
+<footer class="footer">
   <div class="wrap">
-    <span>Артём Лёсин, ведущий и модератор · ТОП-100 ведущих России · партнёр TOP Moderator</span>
-    <span><a href="https://instagram.com/artem_lesin" target="_blank" rel="noopener">Instagram</a><a href="https://t.me/lyossin" target="_blank" rel="noopener">Telegram</a></span>
+    <span>Артём Лёсин · ведущий и модератор · ТОП-100 ведущих России · партнёр TOP Moderator</span>
+    <span><a href="https://instagram.com/artem_lesin" target="_blank" rel="noopener">Instagram</a><a href="https://t.me/lyossin" target="_blank" rel="noopener">Telegram</a><a href="https://rutube.ru/video/dc32b61b1d0c86984ee68482ddbe3d3d/" target="_blank" rel="noopener">RuTube</a></span>
   </div>
 </footer>
 
+<div class="viewer" id="videoViewer" hidden>
+  <button class="viewer__close" data-close>Закрыть</button>
+  <iframe class="viewer__frame" id="videoFrame" title="Промо" allow="clipboard-write; autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+<div class="viewer" id="photoViewer" hidden>
+  <p class="viewer__count" id="photoCount"></p>
+  <button class="viewer__close" data-close>Закрыть</button>
+  <button class="viewer__arrow viewer__arrow--prev" id="photoPrev" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m15 5-7 7 7 7"/></svg></button>
+  <img class="viewer__img" id="photoImg" alt="">
+  <button class="viewer__arrow viewer__arrow--next" id="photoNext" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 5 7 7-7 7"/></svg></button>
+</div>
+
 <script>
 (function(){
-  var nav=document.getElementById('nav');
-  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>10)},{passive:true});
-  var els=document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  var root=document.documentElement;
+  var reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* экран загрузки уходит, когда портрет готов: не раньше 1,2 с и не позже 3,6 с */
+  var boot=document.getElementById('boot'), started=Date.now(), released=false;
+  function release(){
+    if(released)return; released=true;
+    var wait=reduced?0:Math.max(0,1200-(Date.now()-started));
+    setTimeout(function(){boot.setAttribute('data-done','true');setTimeout(function(){root.classList.add('is-ready');startCounters()},180)},wait);
+  }
+  var heroImg=new Image(); heroImg.onload=release; heroImg.onerror=release; heroImg.src='media/hero.jpg';
+  setTimeout(release,3600);
+
+  /* шапка и мобильное меню */
+  var header=document.getElementById('header');
+  function onScroll(){header.setAttribute('data-scrolled',scrollY>8?'true':'false')}
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var burger=document.getElementById('burger'), mnav=document.getElementById('mnav');
+  burger.addEventListener('click',function(){var o=burger.getAttribute('aria-expanded')==='true';burger.setAttribute('aria-expanded',String(!o));mnav.setAttribute('data-open',String(!o))});
+  mnav.addEventListener('click',function(e){if(e.target.tagName==='A'){burger.setAttribute('aria-expanded','false');mnav.setAttribute('data-open','false')}});
+
+  /* параллакс первого экрана: портрет уезжает медленнее текста */
+  var portrait=document.getElementById('heroPortrait'), pimg=portrait.querySelector('img'), copy=document.getElementById('heroCopy');
+  if(!reduced){
+    var ticking=false;
+    var apply=function(){
+      ticking=false;
+      if(innerWidth<981){pimg.style.removeProperty('--shift');pimg.style.removeProperty('--zoom');copy.style.removeProperty('--shift');copy.style.opacity='';return}
+      var p=Math.min(Math.max(scrollY/(innerHeight*.9),0),1), e=p*p*(3-2*p);
+      pimg.style.setProperty('--shift',(-34*e).toFixed(1)+'px');
+      pimg.style.setProperty('--zoom',(1-.045*e).toFixed(3));
+      copy.style.setProperty('--shift',(22*e).toFixed(1)+'px');
+      copy.style.opacity=(1-.45*e).toFixed(3);
+    };
+    addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(apply)}},{passive:true});
+    addEventListener('resize',apply); apply();
+  }
+
+  /* появление блоков при прокрутке, соседние идут лесенкой */
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!reduced&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.filter(function(e){return e.isIntersecting}).forEach(function(e,i){
+        e.target.style.transitionDelay=(i*70)+'ms'; e.target.classList.add('is-visible'); io.unobserve(e.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
     els.forEach(function(el){io.observe(el)});
-  }else{els.forEach(function(el){el.classList.add('in')})}
+  }else{els.forEach(function(el){el.classList.add('is-visible')})}
+
+  /* цифры досчитываются до своего значения; год не считаем */
+  function startCounters(){
+    if(reduced)return;
+    [].slice.call(document.querySelectorAll('#stats .stat__value')).forEach(function(node,i){
+      var text=node.textContent, m=text.match(/\d+/);
+      if(!m||m[0].length>3)return;
+      var target=+m[0], dur=1000+i*120, t0=null;
+      function frame(ts){
+        if(!t0)t0=ts;
+        var k=Math.min((ts-t0)/dur,1), v=Math.round(target*(1-Math.pow(1-k,3)));
+        node.textContent=text.replace(m[0],String(v));
+        if(k<1)requestAnimationFrame(frame); else node.textContent=text;
+      }
+      node.textContent=text.replace(m[0],'0'); requestAnimationFrame(frame);
+      setTimeout(function(){node.textContent=text},dur+600); // страховка: цифра всегда встаёт на место
+    });
+  }
+
+  function lock(on){document.body.style.overflow=on?'hidden':''}
+
+  /* промо открываются в просмотрщике RuTube */
+  var vv=document.getElementById('videoViewer'), vf=document.getElementById('videoFrame');
+  [].slice.call(document.querySelectorAll('[data-video]')).forEach(function(b){
+    b.addEventListener('click',function(){vf.src='https://rutube.ru/play/embed/'+b.getAttribute('data-video')+'?autoplay=1';vv.hidden=false;lock(true)});
+  });
+  function closeVideo(){vv.hidden=true;vf.src='about:blank';lock(false)}
+  vv.addEventListener('click',function(e){if(e.target===vv||e.target.hasAttribute('data-close'))closeVideo()});
+
+  /* фото листаются в просмотрщике */
+  var pv=document.getElementById('photoViewer'), pi=document.getElementById('photoImg'), pc=document.getElementById('photoCount');
+  var shots=[].slice.call(document.querySelectorAll('#gallery img')), idx=0;
+  function show(i){idx=(i+shots.length)%shots.length;pi.src=shots[idx].src;pi.alt=shots[idx].alt;pc.textContent=(idx+1)+' / '+shots.length}
+  shots.forEach(function(img,i){img.parentNode.addEventListener('click',function(){show(i);pv.hidden=false;lock(true)})});
+  document.getElementById('photoPrev').addEventListener('click',function(e){e.stopPropagation();show(idx-1)});
+  document.getElementById('photoNext').addEventListener('click',function(e){e.stopPropagation();show(idx+1)});
+  function closePhoto(){pv.hidden=true;lock(false)}
+  pv.addEventListener('click',function(e){if(e.target===pv||e.target.hasAttribute('data-close'))closePhoto()});
+  addEventListener('keydown',function(e){
+    if(e.key==='Escape'){if(!vv.hidden)closeVideo();if(!pv.hidden)closePhoto()}
+    if(!pv.hidden&&e.key==='ArrowLeft')show(idx-1);
+    if(!pv.hidden&&e.key==='ArrowRight')show(idx+1);
+  });
+
+  /* заявка уходит готовым сообщением в WhatsApp */
   document.getElementById('lead').addEventListener('submit',function(ev){
     ev.preventDefault();
     var v=function(id){return document.getElementById(id).value.trim()};
-    var t='Здравствуйте, Артём! Заявка с сайта.\nИмя: '+v('f-name')+'\nДата: '+(v('f-date')||'уточню')+'\nСобытие: '+v('f-type')+(v('f-city')?'\nГород и гости: '+v('f-city'):'')+(v('f-msg')?'\nКомментарий: '+v('f-msg'):'');
+    var t='Здравствуйте, Артём! Заявка с сайта.\nИмя: '+v('f-name')+(v('f-phone')?'\nТелефон: '+v('f-phone'):'')+'\nДата: '+(v('f-date')||'уточню')+'\nСобытие: '+v('f-type')+(v('f-msg')?'\nКомментарий: '+v('f-msg'):'');
     window.open('https://wa.me/79856908828?text='+encodeURIComponent(t),'_blank');
   });
 })();
