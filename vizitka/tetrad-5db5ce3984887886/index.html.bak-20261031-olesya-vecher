@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Визитка · рабочая тетрадь</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Fira+Sans+Extra+Condensed:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#0d0c0b;--card:#161412;--line:rgba(208,176,104,.32);--line2:rgba(255,255,255,.09);--text:#f2efe9;--muted:#a59f95;--gold:#D0B068;--hi:#F0A800;
+--g-btn:linear-gradient(100deg,#e9c463 0%,#F0A800 100%);
+--display:'Fira Sans Extra Condensed',sans-serif;--body:'Manrope',sans-serif;--serif:'Cormorant Garamond',serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:var(--body);color:var(--text);-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 120px;position:relative;overflow:hidden}
+.wrap::before{content:'';position:absolute;right:-180px;top:-140px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(208,176,104,.16),rgba(208,176,104,0) 65%);pointer-events:none}
+.wrap>*{position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line2);padding-bottom:12px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.logo{font-family:var(--serif);font-size:17px;letter-spacing:.06em;color:var(--text)}
+.gold{color:#DDB866}.silver{color:#F2EFE9}
+section{padding-top:34px}
+.kick{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 10px}
+h1,h2{font-family:var(--display);font-weight:500;text-transform:uppercase;line-height:.95;margin:0}
+h1{font-size:clamp(44px,12vw,72px)}h2{font-size:clamp(36px,9.5vw,54px)}
+h1>span,h2>span{display:block}
+.lead{font-size:16px;line-height:1.55;color:var(--muted);margin:16px 0 20px}
+.hero{border:1px solid var(--line);border-radius:22px;overflow:hidden;aspect-ratio:4/3;margin:18px 0 0}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:brightness(1.15)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.pill{display:inline-block;border-radius:999px;padding:6px 14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.p-dark{background:#14110c;color:var(--gold)}.p-gold{background:var(--g-btn);color:#14110c}.p-ghost{border:1px solid var(--line2);color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line2);border-radius:18px;padding:20px;margin-bottom:14px}
+.card.g{border-color:var(--line)}
+.card.fill{background:var(--g-btn);color:#14110c;border:0}
+.lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+.fill .lbl{color:#3a2c0c}
+.grid2{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:620px){.grid2{grid-template-columns:1fr 1fr}}
+.q{display:flex;gap:14px;align-items:flex-start;margin-bottom:12px}
+.num{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--g-btn);color:#14110c;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.q h3{font-family:var(--display);font-weight:500;font-size:24px;line-height:1.1;margin:0 0 6px}
+.q p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.pre{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-top:10px}
+.big{font-family:var(--display);font-size:28px;font-weight:500;line-height:1.15}
+textarea,input[type=text],input[type=number]{width:100%;font:16px/1.5 var(--body);color:var(--text);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 14px;outline:none;resize:none;overflow:hidden}
+textarea:focus,input:focus{border-color:var(--gold);background:rgba(208,176,104,.06)}
+textarea::placeholder,input::placeholder{color:#6f6a62}
+.fill textarea{color:#14110c;background:rgba(255,255,255,.35);border-color:rgba(20,17,12,.3)}
+.fill textarea::placeholder{color:#5b4a22}
+.chk{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.45;margin:0 0 12px;cursor:pointer}
+.chk input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:22px;height:22px;border:1.5px solid var(--gold);border-radius:6px;margin:0;cursor:pointer;display:grid;place-items:center}
+.chk input:checked{background:var(--g-btn);border-color:transparent}
+.chk input:checked::after{content:'';width:6px;height:11px;border:solid #14110c;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.other{margin:-2px 0 12px 34px}
+.ver{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.ver b{font-family:var(--display);font-weight:500;font-size:34px;line-height:1}
+.ver-note{font-size:14px;color:var(--muted);margin-bottom:12px}.fill .ver-note{color:#3a2c0c}
+.score{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:620px){.score{grid-template-columns:repeat(4,1fr)}}
+.score label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.score input{font-family:var(--display);font-size:26px;color:var(--gold);text-align:center;padding:8px}
+.row{display:flex;align-items:center;gap:14px}
+.row h3{font-family:var(--display);font-weight:500;font-size:24px;margin:0;min-width:110px}
+.row p{margin:0;color:var(--muted);font-size:14px;line-height:1.45;flex:1}
+.quote{font-family:var(--serif);font-size:54px;line-height:.6;color:var(--gold)}
+.saved{font-size:12px;color:var(--muted);text-align:center;margin:8px 0 0}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;background:rgba(13,12,11,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line2);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.bar .in{max-width:760px;margin:0 auto;display:flex;gap:10px}
+.btn{flex:1;border:0;border-radius:14px;padding:15px;font:700 15px var(--body);cursor:pointer}
+.btn.main{background:var(--g-btn);color:#14110c}
+.btn.ghost{flex:0 0 auto;background:transparent;border:1px solid var(--line2);color:var(--muted);padding:15px 16px}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#f2efe9;color:#14110c;padding:12px 18px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:6;max-width:90vw;text-align:center}
+.toast.on{opacity:1}
+#fallback{display:none}
+.foot{border-top:1px solid var(--line2);margin-top:34px;padding-top:14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+a{color:var(--gold)}
+</style></head><body>
+<div class="wrap">
+  <div class="top"><span class="logo">АРТЁМ ЛЁСИН</span><span>Практикум «Визитка»</span></div>
+
+  <section>
+    <div class="kick">Рабочая тетрадь к уроку</div>
+    <h1><span class="silver">Расскажи</span><span class="silver">о себе</span><span class="gold">так, чтобы</span><span class="gold">запомнили</span></h1>
+    <div class="hero"><img src="/media/vizitka-portrait.jpg" alt="Артём Лёсин"></div>
+    <p class="lead">Пройди шаги по порядку и пиши прямо здесь. Всё сохраняется в твоём телефоне, можно закрыть страницу и вернуться. В конце жми «Скопировать ответы» и вставь их в задание под уроком.</p>
+    <div class="pills"><span class="pill p-gold">5 секунд</span><span class="pill p-ghost">15 секунд</span><span class="pill p-ghost">30 секунд</span></div>
+    <div class="card g"><div class="lbl">Твой результат</div><div style="font-size:15px;line-height:1.55">За 30 минут ты соберёшь три версии самопрезентации: для быстрого знакомства, нетворкинга и выступления. Потом запишешь подачу и получишь разбор.</div></div>
+    <div class="card"><div class="lbl">Об авторе</div><div style="font-size:15px;line-height:1.55">Артём Лёсин. 27 лет на сцене, топ-100 ведущих России. Эфир на 1,5 млн зрителей, зал на 28 000 человек.</div></div>
+  </section>
+
+  <section>
+    <div class="kick">Первые шаги</div>
+    <h2><span class="silver">Что ты соберёшь</span><span><span class="silver">за </span><span class="gold">30 минут</span></span></h2>
+    <p class="lead">В конце у тебя останется рабочий инструмент, который можно сказать уже на следующей встрече.</p>
+    <div class="grid2">
+      <div class="card" style="margin:0"><div class="big"><span class="gold">01</span> Ясность</div><p style="color:var(--muted);font-size:14px;line-height:1.5;margin:8px 0 0">Поймёшь, как объяснить свою ценность без длинного списка должностей и регалий.</p></div>
+      <div class="card" style="margin:0"><div class="big"><span class="gold">02</span> Формулировка</div><p style="color:var(--muted);font-size:14px;line-height:1.5;margin:8px 0 0">Соберёшь фразу, которая звучит живо и конкретно. Резюме тут ни при чём.</p></div>
+      <div class="card" style="margin:0"><div class="big"><span class="gold">03</span> Три версии</div><p style="color:var(--muted);font-size:14px;line-height:1.5;margin:8px 0 0">Подготовишь варианты на 5, 15 и 30 секунд для разных ситуаций.</p></div>
+      <div class="card" style="margin:0"><div class="big"><span class="gold">04</span> Разбор</div><p style="color:var(--muted);font-size:14px;line-height:1.5;margin:8px 0 0">Запишешь подачу и получишь личные рекомендации от Олеси.</p></div>
+    </div>
+    <div class="card g" style="margin-top:14px">
+      <div class="quote">“</div>
+      <div style="font-size:19px;font-weight:600;line-height:1.4;margin-top:6px">Самопрезентация не обязана рассказать о тебе всё. Её задача открыть разговор, чтобы человек сам спросил: «А как именно ты это делаешь?»</div>
+      <div class="lbl" style="margin:16px 0 8px">Главный принцип</div>
+      <div style="border-top:1px solid var(--line);padding-top:12px;color:var(--gold);font-size:15px">Харизма в самопрезентации складывается из трёх вещей: ясности, энергии и уместности.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kick">Шаг 1</div>
+    <h2><span class="silver">Определи</span><span class="gold">контекст</span></h2>
+    <p class="lead">Сильная самопрезентация собирается под конкретную ситуацию. Сначала реши, где и для кого ты будешь говорить.</p>
+    <div class="card">
+      <div class="lbl">Где ты будешь говорить о себе?</div>
+      <label class="chk"><input type="checkbox" data-k="ctx_net" data-t="Деловые мероприятия и нетворкинг">Деловые мероприятия и нетворкинг</label>
+      <label class="chk"><input type="checkbox" data-k="ctx_stage" data-t="Выступления и конференции">Выступления и конференции</label>
+      <label class="chk"><input type="checkbox" data-k="ctx_media" data-t="Соцсети, подкасты, интервью">Соцсети, подкасты, интервью</label>
+      <label class="chk"><input type="checkbox" data-k="ctx_clients" data-t="Знакомство с будущими клиентами">Знакомство с будущими клиентами</label>
+      <label class="chk"><input type="checkbox" data-k="ctx_meet" data-t="Собеседования и деловые встречи">Собеседования и деловые встречи</label>
+      <label class="chk"><input type="checkbox" data-k="ctx_inside" data-t="Встречи внутри компании">Встречи внутри компании</label>
+      <label class="chk"><input type="checkbox" data-k="ctx_other" data-t="Другое">Другое</label>
+      <div class="other"><input type="text" data-k="ctx_other_txt" placeholder="Где ещё?"></div>
+    </div>
+    <div class="card"><div class="q"><div class="num">1</div><div><h3>Что человек должен понять о тебе после знакомства?</h3><p>Одна главная мысль. Всё перечислять не нужно.</p></div></div><textarea rows="3" data-k="s1_q1" data-t="Что человек должен понять обо мне" placeholder="Напиши здесь"></textarea></div>
+    <div class="card"><div class="q"><div class="num">2</div><div><h3>Какой вопрос или действие должна вызвать твоя фраза?</h3><p>Например: попросить рассказать подробнее, обменяться контактами, назначить встречу, зайти в твой профиль.</p></div></div><textarea rows="3" data-k="s1_q2" data-t="Какое действие должна вызвать фраза" placeholder="Напиши здесь"></textarea></div>
+  </section>
+
+  <section>
+    <div class="kick">Шаг 2</div>
+    <h2><span class="silver">Найди свою</span><span class="gold">точку силы</span></h2>
+    <p class="lead">Красивая фраза появится потом. Сначала собери смысл из четырёх ответов.</p>
+    <div class="card"><div class="q"><div class="num">1</div><div><h3>Кто ты?</h3><p>Выбери одну роль, которая важна именно в этой ситуации.</p><div class="pre">Я ·</div></div></div><textarea rows="1" data-k="s2_who" data-t="Кто я" placeholder="Я…"></textarea></div>
+    <div class="card"><div class="q"><div class="num">2</div><div><h3>Что ты делаешь особенно хорошо?</h3><p>Отвечай действием: создаю, выстраиваю, нахожу, готовлю, запускаю.</p><div class="pre">Я создаю / выстраиваю ·</div></div></div><textarea rows="1" data-k="s2_do" data-t="Что я делаю особенно хорошо" placeholder="Я создаю…"></textarea></div>
+    <div class="card"><div class="q"><div class="num">3</div><div><h3>Для кого ты это делаешь?</h3><p>Назови людей или ситуацию, где твоя работа нужнее всего.</p><div class="pre">Мои люди ·</div></div></div><textarea rows="1" data-k="s2_for" data-t="Мои люди" placeholder="Мои люди…"></textarea></div>
+    <div class="card"><div class="q"><div class="num">4</div><div><h3>Что меняется после работы с тобой?</h3><p>Что получает человек или компания?</p><div class="pre">После работы со мной ·</div></div></div><textarea rows="1" data-k="s2_after" data-t="Что меняется после работы со мной" placeholder="После работы со мной…"></textarea></div>
+  </section>
+
+  <section>
+    <div class="kick">Шаг 3</div>
+    <h2><span class="silver">Собери</span><span class="gold">первый черновик</span></h2>
+    <p class="lead">Сначала соедини смысл. Идеальная формулировка с первого раза не нужна.</p>
+    <div class="card fill"><div class="lbl">Базовая формула</div><div class="big" style="font-size:26px">«Меня зовут ______. Я ______. Работаю с ______ и создаю для них ______ с помощью ______.»</div></div>
+    <div class="card" style="font-size:14.5px;line-height:1.5">Слово «помогаю» говорить не обязательно. Бери живые глаголы: создаю, превращаю, выстраиваю, готовлю, нахожу, запускаю.</div>
+    <div class="grid2">
+      <div class="card" style="margin:0"><div class="lbl" style="color:var(--muted)">Было</div><div class="big" style="font-size:22px">«Меня зовут Артём. Я ведущий и провожу тренинги».</div><p style="color:var(--muted);font-size:13px;margin:8px 0 0">Понятно, но запомнить нечего.</p></div>
+      <div class="card g" style="margin:0"><div class="lbl">Стало</div><div class="big" style="font-size:22px">«Я Артём Лёсин, 27 лет на сцене. Учу экспертов говорить так, чтобы их слушали и у них покупали».</div></div>
+    </div>
+    <div class="card" style="margin-top:14px"><div class="lbl">Мой первый черновик</div><textarea rows="4" data-k="s3_draft" data-t="Первый черновик" placeholder="Меня зовут…"></textarea></div>
+  </section>
+
+  <section>
+    <div class="kick">Шаг 4</div>
+    <h2><span class="silver">Сделай</span><span class="gold">три версии</span></h2>
+    <p class="lead">Одна фраза на все случаи не работает. Подготовь три уровня глубины.</p>
+    <div class="card fill"><div class="ver"><b>5 секунд</b><span class="pill p-dark">Имя + роль + главный результат</span></div><div class="ver-note">Быстрое знакомство, шапка профиля, первый вопрос «чем занимаешься?»</div><textarea rows="2" data-k="s4_v5" data-t="Версия 5 секунд" placeholder="Напиши здесь"></textarea></div>
+    <div class="card g"><div class="ver"><b class="gold">15 секунд</b><span class="pill p-gold">Имя + роль + аудитория + результат</span></div><div class="ver-note">Нетворкинг, созвон, короткое представление перед группой.</div><textarea rows="3" data-k="s4_v15" data-t="Версия 15 секунд" placeholder="Напиши здесь"></textarea></div>
+    <div class="card g"><div class="ver"><b class="gold">30 секунд</b><span class="pill p-gold">+ метод или опыт</span></div><div class="ver-note">Выступление, интервью, подкаст или момент, когда тебя просят рассказать подробнее.</div><textarea rows="4" data-k="s4_v30" data-t="Версия 30 секунд" placeholder="Напиши здесь"></textarea></div>
+  </section>
+
+  <section>
+    <div class="kick">Шаг 5</div>
+    <h2><span class="silver">Проверь текст</span><span><span class="silver">и </span><span class="gold">подачу</span></span></h2>
+    <p class="lead">Слова это половина дела. Вторая половина в том, как они звучат твоим голосом.</p>
+    <div class="grid2">
+      <div class="card" style="margin:0"><div class="lbl">Текст</div>
+        <label class="chk"><input type="checkbox" data-k="t1">Понятно, чем я занимаюсь.</label>
+        <label class="chk"><input type="checkbox" data-k="t2">Есть конкретный результат.</label>
+        <label class="chk"><input type="checkbox" data-k="t3">Я не пересказываю всю биографию.</label>
+        <label class="chk"><input type="checkbox" data-k="t4">Нет непонятных терминов.</label>
+        <label class="chk"><input type="checkbox" data-k="t5">Нет пустых слов: «качественно», «эффективно», «комплексно».</label>
+        <label class="chk"><input type="checkbox" data-k="t6">Фраза отличает меня от сотни похожих специалистов.</label>
+        <label class="chk"><input type="checkbox" data-k="t7">Текст легко сказать вслух.</label>
+        <label class="chk"><input type="checkbox" data-k="t8">После фразы хочется задать вопрос.</label>
+      </div>
+      <div class="card" style="margin:0"><div class="lbl">Подача</div>
+        <label class="chk"><input type="checkbox" data-k="d1">Начинаю без долгой паузы.</label>
+        <label class="chk"><input type="checkbox" data-k="d2">Не тороплюсь и не проглатываю окончания.</label>
+        <label class="chk"><input type="checkbox" data-k="d3">Держу паузу после имени и главной мысли.</label>
+        <label class="chk"><input type="checkbox" data-k="d4">Не опускаю голос в конце фразы.</label>
+        <label class="chk"><input type="checkbox" data-k="d5">Говорю без извиняющейся интонации.</label>
+        <label class="chk"><input type="checkbox" data-k="d6">Смотрю на человека или в камеру.</label>
+        <label class="chk"><input type="checkbox" data-k="d7">Звучу естественно, без заученности.</label>
+        <label class="chk"><input type="checkbox" data-k="d8">В голосе есть энергия, без наигранности.</label>
+      </div>
+    </div>
+    <div class="card g" style="margin-top:14px"><div class="lbl">Быстрая самооценка, от 1 до 10</div>
+      <div class="score">
+        <div><label for="sc1">Ясность</label><input id="sc1" type="number" inputmode="numeric" min="1" max="10" data-k="sc_clear" data-t="Ясность" placeholder="–"></div>
+        <div><label for="sc2">Конкретика</label><input id="sc2" type="number" inputmode="numeric" min="1" max="10" data-k="sc_conc" data-t="Конкретика" placeholder="–"></div>
+        <div><label for="sc3">Запоминаемость</label><input id="sc3" type="number" inputmode="numeric" min="1" max="10" data-k="sc_mem" data-t="Запоминаемость" placeholder="–"></div>
+        <div><label for="sc4">Уверенность</label><input id="sc4" type="number" inputmode="numeric" min="1" max="10" data-k="sc_conf" data-t="Уверенность" placeholder="–"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kick">Обратная связь</div>
+    <h2><span class="silver">Получи разбор</span><span><span class="silver">от </span><span class="gold">Олеси</span></span></h2>
+    <p class="lead">Отправь всё в задании под уроком. Чем больше контекста, тем точнее разбор.</p>
+    <div class="card"><div class="row"><div class="num">1</div><h3>Контекст</h3><p>Где будешь говорить и кто тебя слушает.</p></div></div>
+    <div class="card"><div class="row"><div class="num">2</div><h3>Три версии</h3><p>Тексты на 5, 15 и 30 секунд.</p></div></div>
+    <div class="card"><div class="row"><div class="num">3</div><h3>Запись</h3><p>Голосовое или видео с основной версией прикрепи в задании.</p></div></div>
+    <div class="card"><div class="row" style="margin-bottom:12px"><div class="num">4</div><h3>Твой вопрос</h3><p>Что тебе самому пока не нравится в тексте или подаче.</p></div><textarea rows="3" data-k="s5_question" data-t="Мой вопрос" placeholder="Напиши здесь"></textarea></div>
+    <div class="card fill"><div class="lbl">Что придёт в ответ</div><div class="big" style="font-size:24px">Разбор сильных и слабых мест, улучшенные версии на 5, 15 и 30 секунд и советы по голосу, темпу, паузам и уверенности.</div></div>
+  </section>
+
+  <section>
+    <div class="kick">Итог</div>
+    <h2><span class="silver">Моя готовая</span><span class="gold">самопрезентация</span></h2>
+    <p class="lead">Перепиши сюда финальные версии после разбора. Держи их под рукой перед встречами и эфирами.</p>
+    <div class="card g"><div class="ver"><b class="gold">5 секунд</b></div><textarea rows="2" data-k="f_v5" data-t="Финал 5 секунд" placeholder="После разбора"></textarea></div>
+    <div class="card g"><div class="ver"><b class="gold">15 секунд</b></div><textarea rows="3" data-k="f_v15" data-t="Финал 15 секунд" placeholder="После разбора"></textarea></div>
+    <div class="card g"><div class="ver"><b class="gold">30 секунд</b></div><textarea rows="4" data-k="f_v30" data-t="Финал 30 секунд" placeholder="После разбора"></textarea></div>
+    <div style="text-align:center;margin-top:24px"><div class="big"><span class="silver">Тебя должны слышать,</span><br><span class="gold">запоминать и выбирать</span></div></div>
+    <div class="card" id="fallback" style="margin-top:20px"><div class="lbl">Скопируй текст вручную</div><textarea rows="8" id="fbtext" readonly></textarea></div>
+    <p class="saved" id="saved"></p>
+  </section>
+
+  <div class="foot"><span class="gold" style="font-weight:700">27 лет на сцене</span><span>Артём Лёсин · Визитка</span></div>
+</div>
+
+<div class="bar"><div class="in"><button class="btn main" id="copy">Скопировать ответы</button><button class="btn ghost" id="clear">Очистить</button></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var KEY='vizitka-tetrad-v1', st={};
+  try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){st={}}
+  var els=[].slice.call(document.querySelectorAll('[data-k]'));
+  function grow(t){if(t.tagName==='TEXTAREA'){t.style.height='auto';t.style.height=(t.scrollHeight+2)+'px'}}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st));document.getElementById('saved').textContent='Сохранено в этом телефоне'}catch(e){}}
+  els.forEach(function(el){
+    var k=el.dataset.k;
+    if(el.type==='checkbox'){el.checked=!!st[k];el.addEventListener('change',function(){st[k]=el.checked;save()})}
+    else{if(st[k]!=null)el.value=st[k];grow(el);el.addEventListener('input',function(){
+      if(el.type==='number'&&el.value!==''){var n=+el.value;if(n>10)el.value=10;if(n<1)el.value=1}
+      st[k]=el.value;grow(el);save()})}
+  });
+  window.addEventListener('load',function(){els.forEach(grow)});
+  function v(k){var x=st[k];return (typeof x==='string'?x.trim():'')}
+  function build(){
+    var L=['Практикум «Визитка», мои ответы',''];
+    var ctx=[];els.forEach(function(el){if(el.type==='checkbox'&&el.dataset.k.indexOf('ctx_')===0&&el.checked){ctx.push(el.dataset.k==='ctx_other'&&v('ctx_other_txt')?'Другое: '+v('ctx_other_txt'):el.dataset.t)}});
+    if(!ctx.length&&v('ctx_other_txt'))ctx.push('Другое: '+v('ctx_other_txt'));
+    L.push('ШАГ 1. КОНТЕКСТ');L.push('Где буду говорить: '+(ctx.join(', ')||'не отмечено'));
+    function add(k){var el=document.querySelector('[data-k="'+k+'"]');L.push(el.dataset.t+': '+(v(k)||'—'))}
+    add('s1_q1');add('s1_q2');L.push('');
+    L.push('ШАГ 2. ТОЧКА СИЛЫ');['s2_who','s2_do','s2_for','s2_after'].forEach(add);L.push('');
+    L.push('ШАГ 3. ЧЕРНОВИК');L.push(v('s3_draft')||'—');L.push('');
+    L.push('ШАГ 4. ТРИ ВЕРСИИ');['s4_v5','s4_v15','s4_v30'].forEach(add);L.push('');
+    var t=0,d=0;for(var i=1;i<=8;i++){if(st['t'+i])t++;if(st['d'+i])d++}
+    L.push('ШАГ 5. ПРОВЕРКА');L.push('Текст: отмечено '+t+' из 8');L.push('Подача: отмечено '+d+' из 8');
+    L.push('Самооценка: '+['sc_clear','sc_conc','sc_mem','sc_conf'].map(function(k){var el=document.querySelector('[data-k="'+k+'"]');return el.dataset.t+' '+(v(k)||'–')+'/10'}).join(', '));L.push('');
+    L.push('МОЙ ВОПРОС');L.push(v('s5_question')||'—');
+    if(v('f_v5')||v('f_v15')||v('f_v30')){L.push('');L.push('ФИНАЛ');['f_v5','f_v15','f_v30'].forEach(add)}
+    return L.join('\n');
+  }
+  var toast=document.getElementById('toast'),tm;
+  function say(s){toast.textContent=s;toast.classList.add('on');clearTimeout(tm);tm=setTimeout(function(){toast.classList.remove('on')},2600)}
+  function fallback(txt){var b=document.getElementById('fallback'),ta=document.getElementById('fbtext');ta.value=txt;b.style.display='block';grow(ta);b.scrollIntoView({behavior:'smooth'});ta.focus();ta.select();say('Выдели текст и скопируй')}
+  document.getElementById('copy').addEventListener('click',function(){
+    var txt=build();
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){say('Скопировано. Вставь в задание под уроком')},function(){fallback(txt)})}
+    else fallback(txt);
+  });
+  document.getElementById('clear').addEventListener('click',function(){
+    if(!confirm('Стереть все ответы в этом телефоне?'))return;
+    st={};try{localStorage.removeItem(KEY)}catch(e){}
+    els.forEach(function(el){if(el.type==='checkbox')el.checked=false;else{el.value='';grow(el)}});
+    document.getElementById('saved').textContent='';say('Очищено');
+  });
+})();
+</script>
+</body></html>
