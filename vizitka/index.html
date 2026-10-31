@@ -90,6 +90,8 @@ section{position:relative;z-index:1;padding:72px 0}
 .author .row{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
 .author .ph{border-radius:22px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line2)}
 .author .ph img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.author .ph:has(video){aspect-ratio:9/16;max-width:380px;width:100%;margin:0 auto;background:#000}
+.author .ph video{width:100%;height:100%;object-fit:cover;display:block}
 .author h2{margin-bottom:24px}
 .author p{margin:0 0 16px;color:#cfc9bf}
 .author p b{color:var(--text);font-weight:600}
@@ -202,7 +204,7 @@ footer .legal{width:100%;font-size:13px;opacity:.8}
 
 <section class="author" id="author"><div class="wrap">
   <div class="row">
-    <div class="ph"><img src="/media/vizitka-portrait.jpg" alt="Артём Лёсин" loading="lazy"></div>
+    <div class="ph"><video src="/media/vizitka-artem.mp4" poster="/media/vizitka-artem-poster.jpg" controls playsinline preload="metadata" aria-label="Артём Лёсин о себе"></video></div>
     <div>
       <h2><span class="silver">Привет,</span><span class="gold">я Артём Лёсин</span></h2>
       <p>Я <b>27 лет на сцене</b>, вхожу в топ-100 ведущих России. Вёл эфир на 1,5 миллиона зрителей и мероприятие на 28 000 человек.</p>
