@@ -129,6 +129,21 @@ section{position:relative;z-index:1;padding:72px 0}
 .buy .soon{border:1px solid var(--line);border-radius:999px;padding:16px 22px;color:var(--gold);font-weight:600}
 .buy .small{font-size:13px;color:var(--muted);margin-top:14px}
 
+/* sample + faq */
+.sample .letter{max-width:760px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px}
+.sample .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--gold);margin-bottom:20px}
+.sample .letter p{margin:0 0 14px;color:#d8d3ca}
+.sample .letter p:last-of-type{margin-bottom:0}
+.sample .letter b{color:var(--text);font-weight:600}
+.sample .note{margin:16px 0 0;font-size:13px;color:var(--muted)}
+.faq .list{max-width:760px}
+.faq details{border-bottom:1px solid var(--line2)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:20px 0;font-size:19px;font-weight:500;line-height:1.3}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-size:24px;line-height:1;flex:none}
+.faq details[open] summary::after{content:'\2212'}
+.faq details p{margin:0;padding:0 0 22px;color:var(--muted)}
+
 /* footer */
 footer{position:relative;z-index:1;border-top:1px solid var(--line2);padding:36px 0 48px;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
@@ -237,6 +252,33 @@ footer .legal{width:100%;font-size:13px;opacity:.8}
     <div class="st"><b class="gold">02</b><h3>Заполняешь тетрадь</h3><p>По формуле собираешь свой текст на 5, 15 и 30 секунд.</p></div>
     <div class="st"><b class="gold">03</b><h3>Записываешь себя</h3><p>Голосом или на видео, как удобно. Сдаёшь в задании урока.</p></div>
     <div class="st"><b class="gold">04</b><h3>Получаешь разбор</h3><p>Олеся присылает разбор в течение суток. Можно прислать новую запись и увидеть, как стало.</p></div>
+  </div>
+</div></section>
+
+<section class="sample" id="sample"><div class="wrap">
+  <h2><span class="silver">Как выглядит</span><span class="gold">твой разбор</span></h2>
+  <div class="letter">
+    <span class="tag">Пример</span>
+    <p>Марина, привет! Послушала твою запись 😊</p>
+    <p><b>Что уже сильно:</b> живой голос. Когда ты сказала про запуски для экспертов, сразу захотелось спросить, как именно.</p>
+    <p><b>Что докрутить:</b> первые секунды ушли на должность и стаж, до главного человек может не дойти. И в конце голос уходит вверх, фраза звучит как вопрос.</p>
+    <p><b>Твои версии:</b></p>
+    <p><b>5 секунд:</b> «Я помогаю экспертам запускать курсы без выгорания».</p>
+    <p><b>15 секунд:</b> «Я Марина, помогаю экспертам запускать курсы без выгорания. Беру на себя всю подготовку, а эксперт занимается своим делом».</p>
+    <p><b>30 секунд:</b> та же фраза, плюс один случай из твоей работы и вопрос собеседнику: «А у тебя как проходят запуски?»</p>
+    <p>Попробуй после «без выгорания» сделать паузу и закончить фразу вниз. Запиши ещё раз и пришли, сравним 🔥</p>
+  </div>
+  <p class="note">Марина и её работа придуманы для примера.</p>
+</div></section>
+
+<section class="faq" id="faq"><div class="wrap">
+  <h2><span class="silver">Вопросы</span><span class="gold">и ответы</span></h2>
+  <div class="list">
+    <details><summary>Я боюсь камеры. Мне подойдёт?</summary><p>Подойдёт. Можно записать только голос, лицо показывать не нужно. Не понравился первый дубль? Запиши ещё раз, это нормально 😉</p></details>
+    <details><summary>Я не эксперт. Зачем мне это?</summary><p>«Чем занимаешься?» спрашивают всех: на встрече, на созвоне, в новой компании. Ответ пригодится, даже если ты никогда не выйдешь на сцену.</p></details>
+    <details><summary>Можно пройти с телефона?</summary><p>Да. Урок, тетрадь и запись, всё можно сделать с телефона.</p></details>
+    <details><summary>Кто слушает мою запись?</summary><p>Олеся, мой AI-продюсер. Запись нужна для разбора, публиковать её мы не будем.</p></details>
+    <details><summary>Сколько времени это займёт?</summary><p>Один вечер. Урок идёт 15 минут, остальное время уйдёт на тетрадь и запись.</p></details>
   </div>
 </div></section>
 
