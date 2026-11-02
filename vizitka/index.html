@@ -38,6 +38,7 @@ h1,h2{font-family:var(--display);font-weight:500;text-transform:uppercase;letter
 h2{font-size:clamp(38px,6vw,64px);margin-bottom:36px}
 h2 span{display:block}
 section{position:relative;z-index:1;padding:72px 0}
+section[id]{scroll-margin-top:92px}
 
 /* nav */
 .nav{position:sticky;top:0;z-index:20;background:rgba(13,12,11,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line2)}
@@ -67,7 +68,7 @@ section{position:relative;z-index:1;padding:72px 0}
 .hero .ph img{position:absolute;right:-40px;bottom:0;height:100%;width:auto;max-width:none;
   -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 28%,#000 85%,transparent 100%),linear-gradient(0deg,transparent 0%,#000 18%);
   -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,#000 28%,#000 85%,transparent 100%);filter:brightness(1.3) contrast(1.05)}
-.badge{position:absolute;left:auto;right:0;top:auto;bottom:70px;width:178px;height:178px;z-index:3}
+.badge{position:absolute;left:0;right:auto;top:auto;bottom:70px;width:178px;height:178px;z-index:3}
 .badge svg{position:absolute;inset:0;animation:spin 28s linear infinite}
 .badge .core{position:absolute;inset:26px;border-radius:50%;background:rgba(13,12,11,.88);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .badge .core b{font-family:var(--display);font-weight:500;font-size:40px;line-height:1}
@@ -103,7 +104,7 @@ section{position:relative;z-index:1;padding:72px 0}
 .author h2{margin-bottom:24px}
 .author p{margin:0 0 16px;color:#cfc9bf}
 .author p b{color:var(--text);font-weight:600}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:56px}
 .stats .card{padding:24px 22px}
 .stats b{display:block;font-family:var(--body);font-weight:300;font-size:40px;line-height:1.1;margin-bottom:8px}
 .stats span{color:#d8d3ca;font-size:15px;line-height:1.35;display:block}
@@ -157,7 +158,7 @@ footer .legal{width:100%;font-size:13px;opacity:.8}
   .hero .wrap{grid-template-columns:1fr;min-height:0}
   .hero .ph{order:-1;min-height:0;height:430px;margin:0 -16px}
   .hero .ph img{left:0;right:auto;width:100%;height:100%;object-fit:cover;object-position:center 10%;-webkit-mask-image:linear-gradient(0deg,transparent 0%,#000 30%);mask-image:linear-gradient(0deg,transparent 0%,#000 30%)}
-  .badge{left:auto;right:16px;top:auto;bottom:24px;width:136px;height:136px}
+  .badge{left:16px;right:auto;top:auto;bottom:24px;width:136px;height:136px}
   .badge .core{inset:20px}.badge .core b{font-size:30px}.badge .core small{font-size:10px}
   .hero .txt{padding:8px 0 56px}
   .hero .cta .btn{flex:1 1 100%}
@@ -167,6 +168,7 @@ footer .legal{width:100%;font-size:13px;opacity:.8}
   .author .row h2{order:-1;margin-bottom:24px}
   .author .ph{margin-bottom:28px}
   .stats{grid-template-columns:repeat(2,1fr)}
+  .stats .card:first-child{grid-column:1/-1}
   .stats b{font-size:32px}
   .buy .box{grid-template-columns:1fr;padding:36px 22px;gap:28px}
   .buy .price{font-size:80px}
@@ -185,12 +187,13 @@ footer .legal{width:100%;font-size:13px;opacity:.8}
 
 <section class="hero"><div class="wrap">
   <div class="txt">
-    <span class="pill"><i></i>Практикум «Визитка» · один вечер</span>
+    <span class="pill"><i></i>Твоя самопрезентация за один вечер</span>
     <h1><span class="silver">Расскажи о&nbsp;себе</span><span class="gold">так, чтобы запомнили</span></h1>
-    <p class="lead">Тебя спрашивают «чем занимаешься?». За один вечер ты соберёшь ответ на <b>5, 15 и 30 секунд</b> по моей формуле первого впечатления и получишь <b>личный разбор своей подачи</b>.</p>
+    <p class="lead">Тебя спрашивают: «Чем занимаешься?». А тебе сложно ответить?! За один вечер ты соберёшь ответ на <b>5, 15 и 30 секунд</b> по моей формуле первого впечатления и получишь <b>личный разбор своей самопрезентации</b>.</p>
     <div class="cta">
       <a class="btn btn-gold" href="#inside">Что внутри</a>
       <a class="btn btn-ghost" href="#steps">Как проходит</a>
+      <a class="btn btn-ghost" href="#author">Кто я</a>
     </div>
   </div>
   <div class="ph">
@@ -210,7 +213,7 @@ footer .legal{width:100%;font-size:13px;opacity:.8}
     <div class="card"><div class="q gold">Одна скромная фраза</div><p>Сжимаешься до «ну, я занимаюсь маркетингом». Разговор на этом заканчивается, контакт уходит к тому, кто сказал ярче.</p></div>
     <div class="card"><div class="q gold">Каждый раз заново</div><p>Сочиняешь на ходу. На встрече одно, в эфире другое, в шапке профиля третье. Ни одна версия не нравится тебе самому.</p></div>
   </div>
-  <p class="after">Первое впечатление собирается по формуле. Харизма тут ни при чём 😉 <b>Эту формулу я и даю в практикуме.</b></p>
+  <p class="after">Первое впечатление складывается по формуле. Харизма тут ни при чём 😉<br><b>Эту формулу я и даю в практикуме.</b></p>
 </div></section>
 
 <section class="inside" id="inside"><div class="wrap">
@@ -225,7 +228,7 @@ footer .legal{width:100%;font-size:13px;opacity:.8}
     <div class="card"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/></svg></div><span class="num">04</span>
       <h3>Личный разбор твоей записи</h3><p>Олеся, мой AI-продюсер, послушает тебя и покажет, где ты торопишься, где звучишь шаблонно и как сказать сильнее.</p></div>
   </div>
-  <div class="chips"><em>Пригодится:</em><span>встреча с клиентом</span><span>эфир</span><span>созвон</span><span>нетворкинг</span><span>сцена</span><span>шапка профиля</span></div>
+  <div class="chips"><em>Где пригодится:</em><span>встреча с клиентом</span><span>публичное выступление</span><span>разговор тет-а-тет</span><span>эфир</span><span>созвон</span><span>нетворкинг</span><span>сцена</span><span>шапка профиля</span></div>
 </div></section>
 
 <section class="author" id="author"><div class="wrap">
@@ -240,18 +243,19 @@ footer .legal{width:100%;font-size:13px;opacity:.8}
   <div class="stats">
     <div class="card"><b class="gold">27 лет</b><span>на сцене, 19 из них за гонорар</span></div>
     <div class="card"><b class="gold">топ-100</b><span>ведущих России</span></div>
+    <div class="card"><b class="gold">топ-10</b><span>модераторов Москвы</span></div>
     <div class="card"><b class="gold">1,5 млн</b><span>зрителей одного онлайн-эфира</span></div>
-    <div class="card"><b class="gold">28 000</b><span>гостей на самом большом мероприятии</span></div>
+    <div class="card"><b class="gold">28 000</b><span>гостей на самом большом мероприятии офлайн</span></div>
   </div>
 </div></section>
 
 <section class="steps" id="steps"><div class="wrap">
-  <h2><span class="silver">Как это</span><span class="gold">проходит</span></h2>
+  <h2><span class="silver">Как проходит</span><span class="gold">практикум?!</span></h2>
   <div class="grid">
     <div class="st"><b class="gold">01</b><h3>Смотришь урок</h3><p>15 минут, доступ открывается сразу после оплаты.</p></div>
     <div class="st"><b class="gold">02</b><h3>Заполняешь тетрадь</h3><p>По формуле собираешь свой текст на 5, 15 и 30 секунд.</p></div>
     <div class="st"><b class="gold">03</b><h3>Записываешь себя</h3><p>Голосом или на видео, как удобно. Сдаёшь в задании урока.</p></div>
-    <div class="st"><b class="gold">04</b><h3>Получаешь разбор</h3><p>Олеся присылает разбор в течение суток. Можно прислать новую запись и увидеть, как стало.</p></div>
+    <div class="st"><b class="gold">04</b><h3>Получаешь разбор</h3><p>Олеся пришлёт разбор в течение суток. Поправишь по нему, запишешь себя ещё раз и пришлёшь снова: она сравнит две записи и покажет, что стало лучше.</p></div>
   </div>
 </div></section>
 
@@ -268,7 +272,6 @@ footer .legal{width:100%;font-size:13px;opacity:.8}
     <p><b>30 секунд:</b> та же фраза, плюс один случай из твоей работы и вопрос собеседнику: «А у тебя как проходят запуски?»</p>
     <p>Попробуй после «без выгорания» сделать паузу и закончить фразу вниз. Запиши ещё раз и пришли, сравним 🔥</p>
   </div>
-  <p class="note">Марина и её работа придуманы для примера.</p>
 </div></section>
 
 <section class="faq" id="faq"><div class="wrap">
